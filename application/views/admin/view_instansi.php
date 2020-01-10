@@ -26,7 +26,6 @@
                   <th>No</th>
                   <th>Nama Instansi</th>
                   <th>Alamat Instansi</th>
-                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -45,7 +44,6 @@
                   <th>No</th>
                   <th>Nama Instansi</th>
                   <th>Alamat Insransi</th>
-                  <th>Action</th>
                 </tr>
                 </tfoot>
               </table>

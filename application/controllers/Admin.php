@@ -5,7 +5,10 @@ Class Admin extends CI_Controller{
 
     public function __construct(){
         parent::__construct();
-        $this->load->model("Instansi_model");
+        $this->load->model(array(
+            "Instansi_model",
+            "Jabatan_model")
+        );
         $this->load->library('form_validation');
     }
 
@@ -36,6 +39,37 @@ Class Admin extends CI_Controller{
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
         $this->load->view('admin/view_add_instansi',$tambah);    
+        $this->load->view('template_admin/footer');   
+    }
+
+    //Jabatan
+    public function jabatan(){
+        $data["jabatan"]= $this->Jabatan_model->getAll();
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_jabatan',$data);    
+        $this->load->view('template_admin/footer');   
+    }
+
+    public function addjabatan(){
+        $tambah = $this->Jabatan_model;
+        $validation =$this->form_validation;
+        $validation->set_rules($tambah->rules());
+        if($validation->run()){
+            $tambah->save();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }       
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_add_jabatan',$tambah);    
+        $this->load->view('template_admin/footer');
+
+    }
+    //Teknisi
+    public function teknisi(){
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_teknisi');    
         $this->load->view('template_admin/footer');   
     }
 
