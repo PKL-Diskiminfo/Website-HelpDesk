@@ -7,7 +7,8 @@ Class Admin extends CI_Controller{
         parent::__construct();
         $this->load->model(array(
             "Instansi_model",
-            "Jabatan_model")
+            "Jabatan_model",
+            "User_model")
         );
         $this->load->library('form_validation');
     }
@@ -40,6 +41,30 @@ Class Admin extends CI_Controller{
         $this->load->view('template_admin/sidebar');
         $this->load->view('admin/view_add_instansi',$tambah);    
         $this->load->view('template_admin/footer');   
+    }
+
+    //USER
+    public function user(){
+        
+    }
+    public function addUser(){
+        $data["instansi"] = $this->Instansi_model->getAll();
+        $data["jabatan"] = $this->Jabatan_model->getAll();
+        $tambah = $this->User_model;
+        
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_add_user',$data,$tambah);    
+        $this->load->view('template_admin/footer'); 
+    }
+
+    // BackEnd
+    public function userAdd()
+    {
+        	$tambah = $this->User_model;
+            $tambah->save();
+			$this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
+        	redirect('Admin/index');
     }
 
     //Jabatan
