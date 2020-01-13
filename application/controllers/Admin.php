@@ -8,7 +8,9 @@ Class Admin extends CI_Controller{
         $this->load->model(array(
             "Instansi_model",
             "Jabatan_model",
-            "User_model")
+            "User_model",
+            "Keahlian_model",
+            "Teknisi_model")
         );
         $this->load->library('form_validation');
     }
@@ -23,7 +25,10 @@ Class Admin extends CI_Controller{
         redirect('Admin/jabatan');
     }
     public function teknisiAdd(){
-
+        $tambah = $this->Teknisi_model;
+        $tambah->save();
+        $this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
+        redirect('Admin/teknisi');
     }
     public function userAdd()
     {
@@ -31,6 +36,13 @@ Class Admin extends CI_Controller{
             $tambah->save();
 			$this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
         	redirect('Admin/index');
+    }
+    public function keahlianAdd()
+    {
+        	$tambah = $this->Keahlian_model;
+            $tambah->save();
+			$this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
+        	redirect('Admin/keahlian');
     }
 
     
@@ -101,19 +113,49 @@ Class Admin extends CI_Controller{
     }
 
     public function addjabatan(){
-             
+        $tambah = $this->Jabatan_model;
+
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
-        $this->load->view('admin/view_add_jabatan');    
+        $this->load->view('admin/view_add_jabatan', $Ta);    
         $this->load->view('template_admin/footer');
 
     }
     //Teknisi
     public function teknisi(){
+        $data["teknisi"]= $this->Teknisi_model->getAll();
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
-        $this->load->view('admin/view_teknisi');    
-        $this->load->view('template_admin/footer');   
+        $this->load->view('admin/view_teknisi',$data);    
+        $this->load->view('template_admin/footer');
+     
+    }
+        
+    public function addTeknisi(){
+        $data["keahlian"] = $this->Keahlian_model->getAll();
+        $tambah = $this->Teknisi_model;
+        
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_add_teknisi',$data,$tambah);    
+        $this->load->view('template_admin/footer'); 
     }
 
+    //Keahlian
+    public function keahlian(){
+        $data["keahlian"]= $this->Keahlian_model->getAll();
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_keahlian',$data);    
+        $this->load->view('template_admin/footer');
+    }
+
+    public function addkeahlian(){
+        $tambah = $this->Keahlian_model;
+
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_add_keahlian', $tambah);    
+        $this->load->view('template_admin/footer');
+    }
 }
