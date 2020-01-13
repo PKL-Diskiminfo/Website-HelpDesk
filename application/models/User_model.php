@@ -63,5 +63,5 @@ class User_model extends CI_Model{
     {
         return $this->db->delete($this->_table, array("id_user" => $id_user));
     }
-
+    
 }
