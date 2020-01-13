@@ -82,6 +82,8 @@ Class Admin extends CI_Controller{
 
     //USER
     public function user(){
+        $data["instansi"]=$this->Instansi_model->getAll();
+        $data["jabatan"]=$this->Jabatan_model->getAll();
         $data["user"]=$this->User_model->getAll();
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');

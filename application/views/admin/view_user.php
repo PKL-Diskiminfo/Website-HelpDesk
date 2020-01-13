@@ -36,21 +36,31 @@
 
                 <?php $nomor=1 ?>
                 <?php 
-                                
-                foreach($user as $us): ?>
+                 $this->db->select(
+                   'u.nama_user,
+                   u.kelamin_user,
+                   u.email_user,
+                   i.nama_instansi,
+                   j.nama_jabatan,
+                   ');
+                 $this->db->join('instansi  as i','i.id_instansi = u.id_instansi', 'left');
+                 $this->db->join('jabatan as j','j.id_jabatan = u.id_jabatan', 'left');
+                 $query = $this->db->get('user as u')->result_object();
+                //  var_dump($query);die;
+                foreach($query as $us): ?>
                 <tr>
                   <td><?php echo $nomor ?></td>
                   <td><?=$us->nama_user ?></td>
                   <td><?=$us->kelamin_user ?></td>  
                   <td><?=$us->email_user ?></td>  
-                  <td>null</td>
-                  <td>null</td>
+                  <td><?=$us->nama_instansi ?></td>
+                  <td><?=$us->nama_jabatan ?></td>
         
                 </tr> 
                 <?php $nomor++; ?>
                 <?php endforeach; ?>
                 </tbody>
-                <tfoot>
+                <!-- <tfoot>
                 <tr>
                   <th>No</th>
                   <th>Nama Lengkap</th>
@@ -59,7 +69,7 @@
                   <th>Instansi</th>
                   <th>Jabatan</th>
                 </tr>
-                </tfoot>
+                </tfoot> -->
               </table>
             </div>
             <!-- /.box-body -->
