@@ -7,10 +7,36 @@ Class Admin extends CI_Controller{
         parent::__construct();
         $this->load->model(array(
             "Instansi_model",
-            "Jabatan_model")
+            "Jabatan_model",
+            "User_model")
         );
         $this->load->library('form_validation');
     }
+
+
+
+    // =========BACK END CREATE===============
+    public function jabatanAdd(){
+        $tambah = $this->Jabatan_model;
+        $tambah->save();
+        $this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
+        redirect('Admin/jabatan');
+    }
+    public function teknisiAdd(){
+
+    }
+    public function userAdd()
+    {
+        	$tambah = $this->User_model;
+            $tambah->save();
+			$this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
+        	redirect('Admin/index');
+    }
+
+    
+
+
+
 
     public function index(){
         $this->load->view('template_admin/header');
@@ -42,7 +68,30 @@ Class Admin extends CI_Controller{
         $this->load->view('template_admin/footer');   
     }
 
-    //Jabatan
+    //USER
+    public function user(){
+        $data["user"]=$this->User_model->getAll();
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_user',$data);    
+        $this->load->view('template_admin/footer');       
+    }
+
+
+    public function addUser(){
+        $data["instansi"] = $this->Instansi_model->getAll();
+        $data["jabatan"] = $this->Jabatan_model->getAll();
+        $tambah = $this->User_model;
+        
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_add_user',$data,$tambah);    
+        $this->load->view('template_admin/footer'); 
+    }
+
+    
+
+    //==============JABATAN==============
     public function jabatan(){
         $data["jabatan"]= $this->Jabatan_model->getAll();
         $this->load->view('template_admin/header');
@@ -52,16 +101,10 @@ Class Admin extends CI_Controller{
     }
 
     public function addjabatan(){
-        $tambah = $this->Jabatan_model;
-        $validation =$this->form_validation;
-        $validation->set_rules($tambah->rules());
-        if($validation->run()){
-            $tambah->save();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
-        }       
+             
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
-        $this->load->view('admin/view_add_jabatan',$tambah);    
+        $this->load->view('admin/view_add_jabatan');    
         $this->load->view('template_admin/footer');
 
     }
