@@ -21,7 +21,7 @@
               <div class="box box-body">
                 <div class="col-md-7">
                   <div class="form-group">
-                      <label for="nama_jabatan">Nama Lengkap</label>
+                      <label for="nama_user">Nama Lengkap</label>
                       <input class="form-control" type="text" name="nama_user">
                   </div>
                 </div>
