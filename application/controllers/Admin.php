@@ -10,7 +10,8 @@ Class Admin extends CI_Controller{
             "Jabatan_model",
             "User_model",
             "Keahlian_model",
-            "Teknisi_model")
+            "Teknisi_model",
+            "Admin_model")
         );
         $this->load->library('form_validation');
     }
