@@ -16,7 +16,7 @@
             <div class="col-xs-12">
             <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+              <h3 class="box-title">Daftar Instansi</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -39,13 +39,13 @@
                 <?php $nomor++; ?>
                 <?php endforeach; ?>
                 </tbody>
-                <tfoot>
+                <!-- <tfoot>
                 <tr>
                   <th>No</th>
                   <th>Nama Instansi</th>
                   <th>Alamat Insransi</th>
                 </tr>
-                </tfoot>
+                </tfoot> -->
               </table>
             </div>
             <!-- /.box-body -->
