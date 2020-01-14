@@ -17,6 +17,11 @@ Class Admin extends CI_Controller{
     }
 
     // =========BACK END CREATE===============
+    public function adminAdd(){
+
+
+    }
+    
     public function jabatanAdd(){
         $tambah = $this->Jabatan_model;
         $tambah->save();
@@ -62,7 +67,10 @@ Class Admin extends CI_Controller{
         $this->load->view('template_admin/footer');
     }
     public function addadmin(){
-            
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_add_admin');    
+        $this->load->view('template_admin/footer');
     }
 
 
