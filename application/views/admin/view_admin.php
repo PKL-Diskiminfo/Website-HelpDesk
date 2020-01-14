@@ -16,7 +16,7 @@
             <div class="col-xs-12">
             <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Daftar Instansi</h3>
+              <h3 class="box-title">Daftar Admin</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -27,21 +27,25 @@
                   <th>Nama Admin</th>
                   <th>Email</th>
                   <th>Jenis Kelamin</th>
-                  <th>Jabatan</th>
                   <th>Foto</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>x</td>
-                    <td>x</td>
-                    <td>x</td>
-                    <td>x</td> 
-                    <td>x</td>
-                    <td>x</td>
-                    <td>x</td>
-                </tr> 
+                <?php $nomor=1 ?>
+                        <?php foreach($admin as $adm): ?>
+                            <tr>
+                                <td><?php echo $nomor?></td>
+                                <td><?= $adm->nama_admin?></td>
+                                <td><?= $adm->email_admin?></td>
+                                <td><?= $adm->kelamin_admin?></td>
+                                <td>
+                                  <img src="<?php echo base_url('foto/admin/' . $adm->foto_admin) ?>" width="64"/>
+                                </td>
+                                <td></td>
+                            </tr>
+                        <?php $nomor++ ?>    
+                        <?php endforeach;?>
                 </tbody>
                 <!-- <tfoot>
                 <tr>

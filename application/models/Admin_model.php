@@ -40,10 +40,8 @@ class Admin_model extends CI_Model{
         } else {
             $this->password_admin=md5($post["password_admin"]) ;
         }   
-        $this->kelamin_admin = $post["kelamin_admin"];     
-        $this->id_instansi=$post["id_instansi"];
-        $this->id_jabatan=$post["id_jabatan"];
-        $this->foto = $this->_uploadImage();
+        $this->kelamin_admin = $post["kelamin_admin"];
+        $this->foto_admin = $this->_uploadImage();
 
         $this->db->insert($this->_table, $this);
     }
@@ -58,9 +56,9 @@ class Admin_model extends CI_Model{
         }        
         $this->kelamin_admin = $post["kelamin_admin"];
         if(!empty($_FILES["foto"]["name"])){
-            $this->foto = $this->_uploadImage();
+            $this->foto_admin = $this->_uploadImage();
         } else{
-            $this->foto = $post["old_image"];
+            $this->foto_admin = $post["old_image"];
         }
 
         $this->db->update($this->_table, $this, array('id_admin' => $post['id_admin']));
@@ -72,7 +70,7 @@ class Admin_model extends CI_Model{
     }
     
     public function _uploadImage(){
-        $config['upload_path']      = './foto/admin';
+        $config['upload_path']      = './foto/admin/';
         $config['allowed_types']    = 'gif|jpg|png';
         $config['file_name']        = $this->nama_admin;
         $config['overwrite']        = true;
@@ -82,7 +80,7 @@ class Admin_model extends CI_Model{
 
         $this->load->library('upload', $config);
 
-        if($this->upload->do_upload('foto')){
+        if($this->upload->do_upload('foto_admin')){
             return $this->upload->data("file_name");
         }
         return "default.jpg";

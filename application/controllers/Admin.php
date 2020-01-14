@@ -18,8 +18,10 @@ Class Admin extends CI_Controller{
 
     // =========BACK END CREATE===============
     public function adminAdd(){
-
-
+        $tambah = $this->Admin_model;
+        $tambah->save();
+        $this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
+        redirect('Admin/admin');
     }
     
     public function jabatanAdd(){
@@ -61,9 +63,10 @@ Class Admin extends CI_Controller{
 
     // ================ADMIN ==================//
     public function admin(){
+        $data["admin"]= $this->Admin_model->getAll();
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
-        $this->load->view('admin/view_admin');    
+        $this->load->view('admin/view_admin',$data);    
         $this->load->view('template_admin/footer');
     }
     public function addadmin(){
