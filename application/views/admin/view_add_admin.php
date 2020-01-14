@@ -17,12 +17,29 @@
         <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title"> Add Jabatan</h3>
-            <form action="<?php echo base_url(). 'Admin/jabatanAdd'; ?>" method="post" enctype="multipart/form-data" >
+            <form action="<?php echo base_url(). 'Admin/adminAdd'; ?>" method="post" enctype="multipart/form-data" >
               <div class="box box-body">
                 <div class="col-md-7">
                   <div class="form-group">
-                      <label for="nama_jabatan">Nama Jabatan</label>
+                      <label for="nama_jabatan">Nama </label>
                       <input class="form-control" type="text" name="nama_jabatan">
+                  </div>
+                  <div class="form-group">
+                      <label for="nama_jabatan">Email </label>
+                      <input class="form-control" type="text" name="nama_jabatan">
+                  </div>
+                  <div class="form-group">
+                      <label for="nama_jabatan">password </label>
+                      <input class="form-control" type="text" name="nama_jabatan">
+                  </div>
+                  <div class="form-group">
+                      <label for="nama_jabatan">Jenis Kelamin </label><br>
+                      <input  type="radio" name="" value="">Laki-laki
+                      <input  type="radio" name="" value="">Perempuan
+                  </div>
+                  <div class="form-group">
+                      <label for="">Upload </label><br>
+                      <input  type="file" name="">
                   </div>
                 </div>    
                 <div class="col-md-7">  
