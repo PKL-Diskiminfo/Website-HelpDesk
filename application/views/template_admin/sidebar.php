@@ -316,10 +316,9 @@
           <ul class="treeview-menu">
             <li><a href="<?=base_url('Admin/instansi')?>"><i class="fa fa-circle-o"></i> List Data Instansi</a></li>
             <li><a href="<?=base_url('Admin/jabatan')?>"><i class="fa fa-circle-o"></i> List Data Jabatan</a></li>
-            <li><a href="<?=base_url('Admin/user')?>"><i class="fa fa-circle-o"></i> List Data Jabatan</a></li>
-
-            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+            <li><a href="<?=base_url('Admin/keahlian')?>"><i class="fa fa-circle-o"></i> List Data Keahlian</a></li>
+            <li><a href="<?=base_url('Admin/user')?>"><i class="fa fa-circle-o"></i> List Data User</a></li>
+            <li><a href="<?=base_url('Admin/teknisi')?>"><i class="fa fa-circle-o"></i> List Data Teknisi</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -333,7 +332,9 @@
           <ul class="treeview-menu">
             <li><a href="<?=base_url('Admin/addinstansi')?>"><i class="fa fa-circle-o"></i> Tambah Instansi</a></li>
             <li><a href="<?=base_url('Admin/addjabatan')?>"><i class="fa fa-circle-o"></i> Tambah Jabatan</a></li>
+            <li><a href="<?=base_url('Admin/addkeahlian')?>"><i class="fa fa-circle-o"></i> Tambah Keahlian</a></li>
             <li><a href="<?=base_url('Admin/adduser')?>"><i class="fa fa-circle-o"></i> Tambah User</a></li>
+            <li><a href="<?=base_url('Admin/addteknisi')?>"><i class="fa fa-circle-o"></i> Tambah Teknisi</a></li>
 
           </ul>
         </li>
