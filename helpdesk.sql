@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Jan 2020 pada 02.04
+-- Waktu pembuatan: 14 Jan 2020 pada 02.52
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `helpdesk`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `admin`
+--
+
+CREATE TABLE `admin` (
+  `id_admin` int(11) NOT NULL,
+  `nama_admin` varchar(100) NOT NULL,
+  `email_admin` varchar(50) NOT NULL,
+  `password_admin` varchar(30) NOT NULL,
+  `kelamin_admin` enum('Laki-Laki','Perempuan') NOT NULL,
+  `id_jabatan` int(11) NOT NULL,
+  `foto_admin` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -91,6 +107,13 @@ INSERT INTO `user` (`id_user`, `nama_user`, `kelamin_user`, `email_user`, `passw
 --
 
 --
+-- Indeks untuk tabel `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_admin`),
+  ADD KEY `FK_ADMIN_jABATAN` (`id_jabatan`);
+
+--
 -- Indeks untuk tabel `instansi`
 --
 ALTER TABLE `instansi`
@@ -115,6 +138,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `instansi`
 --
 ALTER TABLE `instansi`
@@ -135,6 +164,12 @@ ALTER TABLE `user`
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `admin`
+--
+ALTER TABLE `admin`
+  ADD CONSTRAINT `FK_ADMIN_jABATAN` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `user`

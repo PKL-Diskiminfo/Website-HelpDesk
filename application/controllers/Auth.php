@@ -2,14 +2,24 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 Class Auth extends CI_Controller{
-
+    
+    private $_admin	= "admin";
+    private $_user	= "user";
+    
     public function __construct(){
         parent :: __construct();
         $this->load->model(array(
             "User_model",
             "Instansi_model",
             "Jabatan_model"    ));
+       if($this->session->userdata('email_admin')){
+          echo "ada sesi";
+            }else{
+          echo "tidak";
+            }    
     }
+
+
     public function login(){
         $this->load->view('loginandregister/login_view');
     }
@@ -19,6 +29,7 @@ Class Auth extends CI_Controller{
         $data["jabatan"] = $this->Jabatan_model->getAll();
         $this->load->view('loginandregister/register_view',$data);
     }
+
 
 
     // BackEnd

@@ -10,14 +10,20 @@ Class Admin extends CI_Controller{
             "Jabatan_model",
             "User_model",
             "Keahlian_model",
-            "Teknisi_model")
+            "Teknisi_model",
+            "Admin_model")
         );
         $this->load->library('form_validation');
     }
 
-
-
     // =========BACK END CREATE===============
+    public function adminAdd(){
+        $tambah = $this->Admin_model;
+        $tambah->save();
+        $this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
+        redirect('Admin/admin');
+    }
+    
     public function jabatanAdd(){
         $tambah = $this->Jabatan_model;
         $tambah->save();
@@ -45,11 +51,9 @@ Class Admin extends CI_Controller{
         	redirect('Admin/keahlian');
     }
 
-    
 
 
-
-
+    // =================INDEX============//
     public function index(){
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
@@ -57,7 +61,23 @@ Class Admin extends CI_Controller{
         $this->load->view('template_admin/footer');
     }
 
-    // INSTANSI 
+    // ================ADMIN ==================//
+    public function admin(){
+        $data["admin"]= $this->Admin_model->getAll();
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_admin',$data);    
+        $this->load->view('template_admin/footer');
+    }
+    public function addadmin(){
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_add_admin');    
+        $this->load->view('template_admin/footer');
+    }
+
+
+    //===============INSTANSI===============// 
     public function instansi(){
         $data["instansi"]= $this->Instansi_model->getAll();
         $this->load->view('template_admin/header');
@@ -123,6 +143,8 @@ Class Admin extends CI_Controller{
         $this->load->view('template_admin/footer');
 
     }
+    
+    
     //Teknisi
     public function teknisi(){
         $data["keahlian"]= $this->Keahlian_model->getAll();
@@ -143,6 +165,7 @@ Class Admin extends CI_Controller{
         $this->load->view('admin/view_add_teknisi',$data,$tambah);    
         $this->load->view('template_admin/footer'); 
     }
+
 
     //Keahlian
     public function keahlian(){
