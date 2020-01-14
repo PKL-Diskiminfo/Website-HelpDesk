@@ -16,8 +16,6 @@ Class Admin extends CI_Controller{
         $this->load->library('form_validation');
     }
 
-
-
     // =========BACK END CREATE===============
     public function jabatanAdd(){
         $tambah = $this->Jabatan_model;
@@ -46,6 +44,9 @@ Class Admin extends CI_Controller{
         	redirect('Admin/keahlian');
     }
 
+
+
+    // =================INDEX============//
     public function index(){
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
@@ -53,7 +54,19 @@ Class Admin extends CI_Controller{
         $this->load->view('template_admin/footer');
     }
 
-    // INSTANSI 
+    // ================ADMIN ==================//
+    public function admin(){
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_admin');    
+        $this->load->view('template_admin/footer');
+    }
+    public function addadmin(){
+            
+    }
+
+
+    //===============INSTANSI===============// 
     public function instansi(){
         $data["instansi"]= $this->Instansi_model->getAll();
         $this->load->view('template_admin/header');
@@ -119,6 +132,8 @@ Class Admin extends CI_Controller{
         $this->load->view('template_admin/footer');
 
     }
+    
+    
     //Teknisi
     public function teknisi(){
         $data["keahlian"]= $this->Keahlian_model->getAll();
@@ -139,6 +154,7 @@ Class Admin extends CI_Controller{
         $this->load->view('admin/view_add_teknisi',$data,$tambah);    
         $this->load->view('template_admin/footer'); 
     }
+
 
     //Keahlian
     public function keahlian(){
