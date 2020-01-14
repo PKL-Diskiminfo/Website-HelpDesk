@@ -119,12 +119,13 @@ Class Admin extends CI_Controller{
 
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
-        $this->load->view('admin/view_add_jabatan', $Ta);    
+        $this->load->view('admin/view_add_jabatan', $tambah);    
         $this->load->view('template_admin/footer');
 
     }
     //Teknisi
     public function teknisi(){
+        $data["keahlian"]= $this->Keahlian_model->getAll();
         $data["teknisi"]= $this->Teknisi_model->getAll();
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
