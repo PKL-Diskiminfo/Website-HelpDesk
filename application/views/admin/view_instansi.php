@@ -39,13 +39,13 @@
                 <?php $nomor++; ?>
                 <?php endforeach; ?>
                 </tbody>
-                <tfoot>
+                <!-- <tfoot>
                 <tr>
                   <th>No</th>
                   <th>Nama Instansi</th>
                   <th>Alamat Insransi</th>
                 </tr>
-                </tfoot>
+                </tfoot> -->
               </table>
             </div>
             <!-- /.box-body -->

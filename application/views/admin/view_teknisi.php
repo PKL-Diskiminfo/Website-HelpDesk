@@ -36,22 +36,30 @@
 
                 <?php $nomor=1 ?>
                 <?php 
-                                
-                foreach($teknisi as $tek): ?>
+                 $this->db->select(
+                   't.nama_teknisi,
+                   t.kelamin_teknisi,
+                   t.email_teknisi,
+                   t.notelp_teknisi,
+                   k.nama_keahlian
+                   ');
+                 $this->db->join('keahlian as k','k.id_keahlian = t.id_keahlian', 'left');
+                 $query = $this->db->get('teknisi as t')->result_object();
+                //  var_dump($query);die;
+                foreach($query as $te): ?>
                 <tr>
                   <td><?php echo $nomor ?></td>
-                  <td><?=$tek->nama_teknisi ?></td>
-                  <td><?=$tek->kelamin_teknisi ?></td>  
-                  <td><?=$tek->email_teknisi ?></td>
-                  <td><?=$tek->notelp_teknisi ?></td>  
-                  <td><?=$tek->id_keahlian?></td>
-                  
+                  <td><?=$te->nama_teknisi ?></td>
+                  <td><?=$te->kelamin_teknisi ?></td>  
+                  <td><?=$te->email_teknisi ?></td>
+                  <td><?=$te->notelp_teknisi ?></td>  
+                  <td><?=$te->nama_keahlian ?></td>
         
                 </tr> 
                 <?php $nomor++; ?>
                 <?php endforeach; ?>
                 </tbody>
-                <tfoot>
+                <!-- <tfoot>
                 <tr>
                   <th>No</th>
                   <th>Nama Lengkap</th>
@@ -60,7 +68,7 @@
                   <th>No Telp</th>
                   <th>Keahlian</th>
                 </tr>
-                </tfoot>
+                </tfoot> -->
               </table>
             </div>
             <!-- /.box-body -->

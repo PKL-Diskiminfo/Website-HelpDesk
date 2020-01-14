@@ -38,13 +38,13 @@
                         <?php $nomor++ ?>    
                         <?php endforeach;?>   
                         </tbody>
-                        <tfoot>
+                        <!-- <tfoot>
                             <tr>
                             <th>Nomor</th>
                             <th>Nama_Jabatan</th>
                             <th>Action</th>
                             </tr>
-                        </tfoot>
+                        </tfoot> -->
                     </table>
                 </div>
             </div>
