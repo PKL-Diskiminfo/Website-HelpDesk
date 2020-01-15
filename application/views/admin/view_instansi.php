@@ -37,8 +37,8 @@
                   <td><?=$ins->nama_instansi ?></td>
                   <td><?=$ins->alamat_instansi ?></td>  
                   <td>
-                  <?php echo anchor('Admin/instansiEdit/' . $ins->id_instansi, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span> </button>'); ?>
-
+                  <?php echo anchor('Admin/instansiEdit/' . $ins->id_instansi, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span> </button>'); ?>Edit
+                  <?php echo anchor('Admin/instansiHapus/' . $jab->id_jabatan, '<button class="btn btn-danger margin" type="button"><span class="fa fa-remove"></span> </button>'); ?>Hapus
                   </td>
                 </tr> 
                 <?php $nomor++; ?>

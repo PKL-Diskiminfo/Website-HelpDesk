@@ -23,7 +23,7 @@
 
                 <div class="col-md-7">
                   <div class="form-group">
-                      <label for="nama_instansi">Nama Jabatan</label>
+                      <label for="nama_jabatan">Nama Jabatan</label>
                       <input class="form-control" type="text" name="nama_jabatan" value="<?php echo $jabatan->nama_jabatan ?>">
                   </div>
                 </div>  
