@@ -62,6 +62,7 @@ Class Admin extends CI_Controller{
        if($validation->run()){
            $var->update();
             $this->session->set_flashdata('success','Berhasil Disimpan');
+            redirect('Admin/Instansi');
         }
         $data["instansi"]= $var->getById($id_instansi);
         if(!$data["instansi"]) show_404();    
@@ -80,6 +81,7 @@ Class Admin extends CI_Controller{
         if($validation->run()){
             $var->update();
              $this->session->set_flashdata('success','Berhasil Disimpan');
+             redirect('Admin/Jabatan');
          }
          $data["jabatan"]= $var->getById($id_jabatan);
          if(!$data["jabatan"]) show_404();    
@@ -88,6 +90,12 @@ Class Admin extends CI_Controller{
          $this->load->view('admin/view_edit_jabatan',$data);    
          $this->load->view('template_admin/footer');    
      }
+
+
+
+     // =================BACK END HAPUS=========== //
+     
+     
 
     
 
