@@ -16,7 +16,7 @@ class Keahlian_model extends CI_Model{
     public function getAll(){
         return $this->db->get($this->_table)->result();
     }
-    public function getById($id){
+    public function getById($id_keahlian){
         return $this->db->get_where($this->_table, ["id_keahlian" => $id_keahlian])->row();
     }
     
@@ -25,17 +25,18 @@ class Keahlian_model extends CI_Model{
         $this->nama_keahlian=$post["nama_keahlian"];
         $this->db->insert($this->_table, $this);
     }
-    // public function update(){
-    //     $post = $this->input->post();
-    //     $this->nama_jabatan=$post["nama_keahlian"];
-    //     $this->db->update($this->_table, $this, array('id_keahlian' => $post['id_keahlian']));
-    // }
 
-    public function ubah($data, $id_keahlian){
-        $this->db->where('id_keahlian', $id_keahlian);
-        $this->db->update($this->_table, $this, array('id_keahlian' => $post['id_keahlian']), $data);
-        return TRUE;
+    public function update(){
+        $post = $this->input->post();
+        $this->nama_keahlian=$post["nama_keahlian"];
+        $this->db->update($this->_table, $this, array('id_keahlian' => $post['id_keahlian']));
     }
+
+    // public function ubah($data, $id_keahlian){
+    //     $this->db->where('id_keahlian', $id_keahlian);
+    //     $this->db->update($this->_table, $this, array('id_keahlian' => $post['id_keahlian']), $data);
+    //     return TRUE;
+    // }
 
     public function delete($id_keahlian)
     {

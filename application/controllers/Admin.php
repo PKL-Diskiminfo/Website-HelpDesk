@@ -51,18 +51,6 @@ Class Admin extends CI_Controller{
         	redirect('Admin/keahlian');
     }
 
-    //=============BACKEND EDIT==================================
-    public function keahlianEdit(){
-        $id_keahlian = $this->input->post('id_keahlian');
-        $data = array(
-            'nama_keahlian' => $this->input->post("nama_keahlian")
-        );
-        $this->Keahlian_model->ubah($data, $id_keahlian);
-        $this->session->set_flashdata('success', 'Data Berhasil diubah');
-        redirect('Admin/keahlian');
-    }
-
-
 //========BACK END EDIT=====================//
     public function instansiEdit($id_instansi= null){
        if(!isset($id_instansi)) redirect('Admin/instansi');
@@ -73,6 +61,7 @@ Class Admin extends CI_Controller{
        if($validation->run()){
            $var->update();
             $this->session->set_flashdata('success','Berhasil Disimpan');
+            redirect('Admin/instansi');
         }
         $data["instansi"]= $var->getById($id_instansi);
         if(!$data["instansi"]) show_404();    
@@ -81,6 +70,25 @@ Class Admin extends CI_Controller{
         $this->load->view('admin/view_edit_instansi',$data);    
         $this->load->view('template_admin/footer');    
     }
+
+    public function keahlianEdit($id_keahlian= null){
+        if(!isset($id_keahlian)) redirect('Admin/keahlian');
+        $var= $this->Keahlian_model;
+        $validation=$this->form_validation;
+        $validation->set_rules($var->rules());
+        
+        if($validation->run()){
+            $var->update();
+             $this->session->set_flashdata('success','Berhasil Disimpan');
+             redirect('Admin/keahlian');
+         }
+         $data["keahlian"]= $var->getById($id_keahlian);
+         if(!$data["keahlian"]) show_404();    
+         $this->load->view('template_admin/header');
+         $this->load->view('template_admin/sidebar');
+         $this->load->view('admin/view_edit_keahlian',$data);    
+         $this->load->view('template_admin/footer');    
+     }
 
 
     // =================INDEX============//

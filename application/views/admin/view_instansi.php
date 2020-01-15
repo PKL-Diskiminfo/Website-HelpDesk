@@ -38,7 +38,6 @@
                   <td><?=$ins->alamat_instansi ?></td>  
                   <td>
                   <?php echo anchor('Admin/instansiEdit/' . $ins->id_instansi, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span> </button>'); ?>
-
                   </td>
                 </tr> 
                 <?php $nomor++; ?>
