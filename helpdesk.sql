@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Jan 2020 pada 02.52
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.3.9
+-- Waktu pembuatan: 14 Jan 2020 pada 08.39
+-- Versi server: 10.1.30-MariaDB
+-- Versi PHP: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,9 +34,15 @@ CREATE TABLE `admin` (
   `email_admin` varchar(50) NOT NULL,
   `password_admin` varchar(30) NOT NULL,
   `kelamin_admin` enum('Laki-Laki','Perempuan') NOT NULL,
-  `id_jabatan` int(11) NOT NULL,
   `foto_admin` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `nama_admin`, `email_admin`, `password_admin`, `kelamin_admin`, `foto_admin`) VALUES
+(1, 'Fadila', 'rfadila@gmail.com', 'e10adc3949ba59abbe56e057f20f88', 'Perempuan', 'Fadila.png');
 
 -- --------------------------------------------------------
 
@@ -81,6 +87,47 @@ INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `keahlian`
+--
+
+CREATE TABLE `keahlian` (
+  `id_keahlian` int(11) NOT NULL,
+  `nama_keahlian` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `keahlian`
+--
+
+INSERT INTO `keahlian` (`id_keahlian`, `nama_keahlian`) VALUES
+(1, 'Jaringan');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `teknisi`
+--
+
+CREATE TABLE `teknisi` (
+  `id_teknisi` int(11) NOT NULL,
+  `nama_teknisi` varchar(100) NOT NULL,
+  `email_teknisi` varchar(100) NOT NULL,
+  `password_teknisi` varchar(100) NOT NULL,
+  `kelamin_teknisi` enum('Laki-laki','Perempuan') NOT NULL,
+  `notelp_teknisi` varchar(13) NOT NULL,
+  `id_keahlian` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `teknisi`
+--
+
+INSERT INTO `teknisi` (`id_teknisi`, `nama_teknisi`, `email_teknisi`, `password_teknisi`, `kelamin_teknisi`, `notelp_teknisi`, `id_keahlian`) VALUES
+(1, 'Dila', 'rfadila19@gmail.com', '202cb962ac59075b964b07152d234b70', 'Perempuan', '082264377060', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -110,8 +157,7 @@ INSERT INTO `user` (`id_user`, `nama_user`, `kelamin_user`, `email_user`, `passw
 -- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id_admin`),
-  ADD KEY `FK_ADMIN_jABATAN` (`id_jabatan`);
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indeks untuk tabel `instansi`
@@ -124,6 +170,19 @@ ALTER TABLE `instansi`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id_jabatan`);
+
+--
+-- Indeks untuk tabel `keahlian`
+--
+ALTER TABLE `keahlian`
+  ADD PRIMARY KEY (`id_keahlian`);
+
+--
+-- Indeks untuk tabel `teknisi`
+--
+ALTER TABLE `teknisi`
+  ADD PRIMARY KEY (`id_teknisi`),
+  ADD KEY `FK_TEKNISI_KEAHLIAN` (`id_keahlian`);
 
 --
 -- Indeks untuk tabel `user`
@@ -141,7 +200,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `instansi`
@@ -156,6 +215,18 @@ ALTER TABLE `jabatan`
   MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT untuk tabel `keahlian`
+--
+ALTER TABLE `keahlian`
+  MODIFY `id_keahlian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `teknisi`
+--
+ALTER TABLE `teknisi`
+  MODIFY `id_teknisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -166,10 +237,10 @@ ALTER TABLE `user`
 --
 
 --
--- Ketidakleluasaan untuk tabel `admin`
+-- Ketidakleluasaan untuk tabel `teknisi`
 --
-ALTER TABLE `admin`
-  ADD CONSTRAINT `FK_ADMIN_jABATAN` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id_jabatan`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `teknisi`
+  ADD CONSTRAINT `FK_TEKNISI_KEAHLIAN` FOREIGN KEY (`id_keahlian`) REFERENCES `keahlian` (`id_keahlian`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `user`
