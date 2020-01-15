@@ -25,10 +25,16 @@ class Keahlian_model extends CI_Model{
         $this->nama_keahlian=$post["nama_keahlian"];
         $this->db->insert($this->_table, $this);
     }
-    public function update(){
-        $post = $this->input->post();
-        $this->nama_jabatan=$post["nama_keahlian"];
-        $this->db->update($this->_table, $this, array('id_keahlian' => $post['id_keahlian']));
+    // public function update(){
+    //     $post = $this->input->post();
+    //     $this->nama_jabatan=$post["nama_keahlian"];
+    //     $this->db->update($this->_table, $this, array('id_keahlian' => $post['id_keahlian']));
+    // }
+
+    public function ubah($data, $id_keahlian){
+        $this->db->where('id_keahlian', $id_keahlian);
+        $this->db->update($this->_table, $this, array('id_keahlian' => $post['id_keahlian']), $data);
+        return TRUE;
     }
 
     public function delete($id_keahlian)

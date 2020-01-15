@@ -33,7 +33,7 @@
                             <tr>
                                 <td><?php echo $nomor?></td>
                                 <td><?= $kea->nama_keahlian?></td>
-                                <td></td>
+                                <td><?php echo anchor('Admin/keahlianEdit'. $kea->id_keahlian,'<button>Edit</button>') ?></td>
                             </tr>
                         <?php $nomor++ ?>    
                         <?php endforeach;?>   

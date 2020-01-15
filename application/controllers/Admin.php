@@ -51,6 +51,17 @@ Class Admin extends CI_Controller{
         	redirect('Admin/keahlian');
     }
 
+    //=============BACKEND EDIT==================================
+    public function keahlianEdit(){
+        $id_keahlian = $this->input->post('id_keahlian');
+        $data = array(
+            'nama_keahlian' => $this->input->post("nama_keahlian")
+        );
+        $this->Keahlian_model->ubah($data, $id_keahlian);
+        $this->session->set_flashdata('success', 'Data Berhasil diubah');
+        redirect('Admin/keahlian');
+    }
+
 
 
     // =================INDEX============//
