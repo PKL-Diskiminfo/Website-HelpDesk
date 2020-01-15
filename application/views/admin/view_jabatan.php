@@ -33,7 +33,11 @@
                             <tr>
                                 <td><?php echo $nomor?></td>
                                 <td><?= $jab->nama_jabatan?></td>
-                                <td></td>
+                                <td>
+
+                                <?php echo anchor('Admin/jabatanEdit/' . $jab->id_jabatan, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span> </button>'); ?>
+                               
+                                </td>
                             </tr>
                         <?php $nomor++ ?>    
                         <?php endforeach;?>   
