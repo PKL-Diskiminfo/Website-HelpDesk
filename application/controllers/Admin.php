@@ -90,6 +90,25 @@ Class Admin extends CI_Controller{
          $this->load->view('template_admin/footer');    
      }
 
+     public function teknisiEdit($id_teknisi= null){
+        if(!isset($id_teknisi)) redirect('Admin/teknisi');
+        $var= $this->Teknisi_model;
+        $validation=$this->form_validation;
+        $validation->set_rules($var->rules());
+        
+        if($validation->run()){
+            $var->update();
+             $this->session->set_flashdata('success','Berhasil Disimpan');
+             redirect('Admin/teknisi');
+         }
+         $data["teknisi"]= $var->getById($id_teknisi);
+         $data["keahlian"]=$var->getById($id_keahlian);
+         if(!$data["teknisi"]) show_404();    
+         $this->load->view('template_admin/header');
+         $this->load->view('template_admin/sidebar');
+         $this->load->view('admin/view_edit_teknisi',$data);    
+         $this->load->view('template_admin/footer');    
+     }
 
     // =================INDEX============//
     public function index(){
