@@ -32,11 +32,12 @@
                         <?php foreach($jabatan as $jab): ?>
                             <tr>
                                 <td><?php echo $nomor?></td>
+                                <td hidden><?= $jab->id_jabatan?></td>
                                 <td><?= $jab->nama_jabatan?></td>
                                 <td>
 
-                                <?php echo anchor('Admin/jabatanEdit/' . $jab->id_jabatan, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span> </button>'); ?>Edit
-                                <?php echo anchor('Admin/jabatanHapus/' . $jab->id_jabatan, '<button class="btn btn-danger margin" type="button"><span class="fa fa-remove"></span> </button>'); ?>Hapus
+                                <?php echo anchor('Admin/jabatanEdit/' . $jab->id_jabatan, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span></button>'); ?>
+                                <?php echo anchor('Admin/jabatanHapus/' . $jab->id_jabatan, '<button class="btn btn-danger margin" type="button"><span class="fa fa-trash"></span></button>'); ?>
                                 
                                 </td>
                             </tr>

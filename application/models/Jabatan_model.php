@@ -23,16 +23,18 @@ class Jabatan_model extends CI_Model{
     
     public function save(){
         $post = $this->input->post();
+        $this->id_jabatan=$post["id_jabatan"];
         $this->nama_jabatan=$post["nama_jabatan"];
         $this->db->insert($this->_table, $this);
     }
     public function update(){
         $post = $this->input->post();
+        $this->id_jabatan=$post["id_jabatan"];
         $this->nama_jabatan=$post["nama_jabatan"];
         $this->db->update($this->_table, $this, array('id_jabatan' => $post['id_jabatan']));
     }
 
-    public function delete($id_jabatan, $where)
+    public function delete($id_jabatan)
     {
         return $this->db->delete($this->_table, array("id_jabatan" => $id_jabatan));
     }
