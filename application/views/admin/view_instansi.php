@@ -39,7 +39,7 @@
                   <td>
 
                   <?php echo anchor('Admin/instansiEdit/' . $ins->id_instansi, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span> </button>'); ?>Edit
-                  <?php echo anchor('Admin/instansiHapus/' . $jab->id_instansi, '<button class="btn btn-danger margin" type="button"><span class="fa fa-remove"></span> </button>'); ?>Hapus
+                  <?php echo anchor('Admin/instansiHapus/' . $ins->id_instansi, '<button class="btn btn-danger margin" type="button"><span class="fa fa-remove"></span> </button>'); ?>Hapus
     
                   </td>
                 </tr> 
