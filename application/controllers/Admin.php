@@ -62,6 +62,7 @@ Class Admin extends CI_Controller{
        if($validation->run()){
            $var->update();
             $this->session->set_flashdata('success','Berhasil Disimpan');
+            redirect('Admin/Instansi');
         }
         $data["instansi"]= $var->getById($id_instansi);
         if(!$data["instansi"]) show_404();    
@@ -70,6 +71,33 @@ Class Admin extends CI_Controller{
         $this->load->view('admin/view_edit_instansi',$data);    
         $this->load->view('template_admin/footer');    
     }
+
+    public function jabatanEdit($id_jabatan= null){
+        if(!isset($id_jabatan)) redirect('Admin/jabatan');
+        $var= $this->Jabatan_model;
+        $validation=$this->form_validation;
+        $validation->set_rules($var->rules());
+        
+        if($validation->run()){
+            $var->update();
+             $this->session->set_flashdata('success','Berhasil Disimpan');
+             redirect('Admin/Jabatan');
+         }
+         $data["jabatan"]= $var->getById($id_jabatan);
+         if(!$data["jabatan"]) show_404();    
+         $this->load->view('template_admin/header');
+         $this->load->view('template_admin/sidebar');
+         $this->load->view('admin/view_edit_jabatan',$data);    
+         $this->load->view('template_admin/footer');    
+     }
+
+
+
+     // =================BACK END HAPUS=========== //
+     
+     
+
+    
 
 
     // =================INDEX============//

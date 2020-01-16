@@ -17,7 +17,7 @@ class Jabatan_model extends CI_Model{
     public function getAll(){
         return $this->db->get($this->_table)->result();
     }
-    public function getById($id){
+    public function getById($id_jabatan){
         return $this->db->get_where($this->_table, ["id_jabatan" => $id_jabatan])->row();
     }
     
@@ -32,7 +32,7 @@ class Jabatan_model extends CI_Model{
         $this->db->update($this->_table, $this, array('id_jabatan' => $post['id_jabatan']));
     }
 
-    public function delete($id_jabatan)
+    public function delete($id_jabatan, $where)
     {
         return $this->db->delete($this->_table, array("id_jabatan" => $id_jabatan));
     }
