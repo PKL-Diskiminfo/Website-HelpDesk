@@ -50,9 +50,9 @@
                   <div class="form-group">
                       <label for="id_keahlian">Keahlian</label>  
                       <select class="form-control select2" name="id_keahlian"style="width: 100%;">
-                            <option value="<?php echo $teknisi->nama_keahlian?>" disable selected>Pilih Keahlian</option>
+                            <option value="" disable selected>Pilih Keahlian</option>
                             <?php foreach($keahlian as $kea):?>
-                                <option value="<?= $kea->id_keahlian?>"<?php if($kea->$id_keahlian ==)><?= $kea->nama_keahlian?></option>
+                                <option value="<?= $kea->id_keahlian?>"><?= $kea->nama_keahlian?></option>
                             <?php  endforeach;?>
                       </select>
                   </div>
