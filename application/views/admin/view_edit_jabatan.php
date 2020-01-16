@@ -16,16 +16,17 @@
       <div class="col-md-8">
         <div class="box box-success">
           <div class="box-header with-border">
-            <h3 class="box-title"> Tambah Keahlian</h3>
-            <form action="<?php echo base_url(). 'Admin/keahlianAdd'; ?>" method="post" enctype="multipart/form-data" >
+            <h3 class="box-title"> Add Jabatan</h3>
+            <form action="<?php echo base_url("Admin/jabatanEdit/$jabatan->id_jabatan") ?>" method="post" enctype="multipart/form-data" >
               <div class="box box-body">
+              <input type="hidden" name="id_jabatan" value="<?php echo $jabatan->id_jabatan ?>" />
+
                 <div class="col-md-7">
                   <div class="form-group">
-                  <input class="hidden" type="text" name="id_keahlian">
-                      <label for="nama_keahlian">Nama Keahlian</label>
-                      <input class="form-control" type="text" name="nama_keahlian">
+                      <label for="nama_jabatan">Nama Jabatan</label>
+                      <input class="form-control" type="text" name="nama_jabatan" value="<?php echo $jabatan->nama_jabatan ?>">
                   </div>
-                </div>    
+                </div>  
                 <div class="col-md-7">  
                 <button type="submit" class="btn btn-success">Submit</button>
                 <button type="reset" class="btn btn-danger">Reset</button>
@@ -37,5 +38,4 @@
         </div>
       </div>
     </section>
- 
  </div>   

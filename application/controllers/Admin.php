@@ -71,6 +71,25 @@ Class Admin extends CI_Controller{
         $this->load->view('template_admin/footer');    
     }
 
+    public function jabatanEdit($id_jabatan= null){
+        if(!isset($id_jabatan)) redirect('Admin/jabatan');
+        $var= $this->Jabatan_model;
+        $validation=$this->form_validation;
+        $validation->set_rules($var->rules());
+        
+        if($validation->run()){
+            $var->update();
+             $this->session->set_flashdata('success','Berhasil Disimpan');
+             redirect('Admin/jabatan');
+         }
+         $data["jabatan"]= $var->getById($id_jabatan);
+         if(!$data["jabatan"]) show_404();    
+         $this->load->view('template_admin/header');
+         $this->load->view('template_admin/sidebar');
+         $this->load->view('admin/view_edit_jabatan',$data);    
+         $this->load->view('template_admin/footer');    
+     }
+
     public function keahlianEdit($id_keahlian= null){
         if(!isset($id_keahlian)) redirect('Admin/keahlian');
         $var= $this->Keahlian_model;
@@ -110,6 +129,47 @@ Class Admin extends CI_Controller{
          $this->load->view('template_admin/footer');    
      }
 
+     // ===========BACK END HAPUS=============
+     public function keahlianHapus($id_keahlian = null){
+        if (!isset($id_keahlian)) show_404();
+
+		if ($this->Keahlian_model->delete($id_keahlian)) {
+			redirect('Admin/keahlian');
+		}
+     }
+
+     public function instansiHapus($id_instansi = null){
+        if (!isset($id_instansi)) show_404();
+
+		if ($this->Instansi_model->delete($id_instansi)) {
+			redirect('Admin/instansi');
+		}
+     }
+
+     public function jabatanHapus($id_jabatan = null){
+        if (!isset($id_jabatan)) show_404();
+
+		if ($this->Jabatan_model->delete($id_jabatan)) {
+			redirect('Admin/jabatan');
+		}
+     }
+
+     public function teknisiHapus($id_teknisi = null){
+        if (!isset($id_teknisi)) show_404();
+
+		if ($this->Teknisi_model->delete($id_teknisi)) {
+			redirect('Admin/teknisi');
+		}
+     }
+
+
+     public function adminHapus($id_admin = null){
+        if (!isset($id_admin)) show_404();
+
+		if ($this->Admin_model->delete($id_admin)) {
+			redirect('Admin/admin');
+		}
+     }
     // =================INDEX============//
     public function index(){
         $this->load->view('template_admin/header');

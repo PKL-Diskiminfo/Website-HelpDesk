@@ -29,7 +29,7 @@
                   <div class="form-group">
                       <label for="alamat_instansi">Alamat Instansi</label>
                       <textarea  name="alamat_instansi" class="form-control"  rows="3"></textarea>
-                  </div>
+                  </div>  
                 </div>  
                 <div class="col-md-7">  
                 <button type="submit" class="btn btn-success">Submit</button>

@@ -32,9 +32,11 @@
                         <?php foreach($keahlian as $kea): ?>
                             <tr>
                                 <td><?php echo $nomor?></td>
+                                <td hidden><?= $kea->id_keahlian?></td>
                                 <td><?= $kea->nama_keahlian?></td>
                                 <td>
-                                <?php echo anchor('Admin/keahlianEdit/' . $kea->id_keahlian, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span> Edit</button>'); ?>
+                                    <?php echo anchor('Admin/keahlianEdit/' . $kea->id_keahlian, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span></button>'); ?>
+                                    <?php echo anchor('Admin/keahlianHapus/' . $kea->id_keahlian, '<button class="btn btn-danger margin" type="button"><span class="fa fa-trash"></span></button>'); ?>
                                 </td>
                             </tr>
                         <?php $nomor++ ?>    
