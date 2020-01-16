@@ -51,6 +51,7 @@ Class Admin extends CI_Controller{
         	redirect('Admin/keahlian');
     }
 
+
 //========BACK END EDIT=====================//
     public function instansiEdit($id_instansi= null){
        if(!isset($id_instansi)) redirect('Admin/instansi');
@@ -61,7 +62,7 @@ Class Admin extends CI_Controller{
        if($validation->run()){
            $var->update();
             $this->session->set_flashdata('success','Berhasil Disimpan');
-            redirect('Admin/instansi');
+            redirect('Admin/Instansi');
         }
         $data["instansi"]= $var->getById($id_instansi);
         if(!$data["instansi"]) show_404();    
@@ -80,7 +81,7 @@ Class Admin extends CI_Controller{
         if($validation->run()){
             $var->update();
              $this->session->set_flashdata('success','Berhasil Disimpan');
-             redirect('Admin/jabatan');
+             redirect('Admin/Jabatan');
          }
          $data["jabatan"]= $var->getById($id_jabatan);
          if(!$data["jabatan"]) show_404();    
