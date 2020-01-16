@@ -19,40 +19,44 @@
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
+          <?php $data = $this->db->count_all('admin');?>   
             <div class="inner">
-              <h3>150</h3>
+              <h3><?=$data?></h3>
 
-              <p>New Orders</p>
+              <p>Jumlah Admin</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="ion ion-happy"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?=base_url('Admin/admin')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-green">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+          <?php $data = $this->db->count_all('instansi');?>   
 
-              <p>Bounce Rate</p>
+            <div class="inner">
+              <h3><?=$data?></h3>
+
+              <p>Jumlah Instansi</p>
             </div>
             <div class="icon">
-              <i class="ion ion-stats-bars"></i>
+              <i class="ion ion-briefcase"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?=base_url('Admin/instansi')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
+          <?php $data = $this->db->count_all('user');?>               
             <div class="inner">
-              <h3>44</h3>
+              <h3><?=$data?></h3>
 
-              <p>User Registrations</p>
+              <p>Jumlah User</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -62,17 +66,20 @@
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
+
           <!-- small box -->
           <div class="small-box bg-red">
-            <div class="inner">
-              <h3>65</h3>
+          <?php $data = $this->db->count_all('teknisi');?>   
 
-              <p>Unique Visitors</p>
+            <div class="inner">
+              <h3><?= $data ?></h3>
+
+              <p>Jumlah Teknisi</p>
             </div>
             <div class="icon">
-              <i class="ion ion-pie-graph"></i>
+              <i class="ion ion-hammer"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?=base_url('Admin/teknisi')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
