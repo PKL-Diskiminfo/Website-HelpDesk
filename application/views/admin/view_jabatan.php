@@ -35,8 +35,8 @@
                                 <td><?= $jab->nama_jabatan?></td>
                                 <td>
 
-                                <?php echo anchor('Admin/jabatanEdit/' . $jab->id_jabatan, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span> </button>'); ?>Edit
-                                <?php echo anchor('Admin/jabatanHapus/' . $jab->id_jabatan, '<button class="btn btn-danger margin" type="button"><span class="fa fa-remove"></span> </button>'); ?>Hapus
+                                <?php echo anchor('Admin/jabatanEdit/' . $jab->id_jabatan, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span> Edit </button>'); ?>
+                                <?php echo anchor('Admin/jabatanHapus/' . $jab->id_jabatan, '<button class="btn btn-danger margin" type="button"><span class="fa fa-remove"></span> Hapus </button>'); ?>
                                 
                                 </td>
                             </tr>
