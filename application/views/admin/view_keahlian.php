@@ -33,7 +33,9 @@
                             <tr>
                                 <td><?php echo $nomor?></td>
                                 <td><?= $kea->nama_keahlian?></td>
-                                <td></td>
+                                <td>
+                                <?php echo anchor('Admin/keahlianEdit/' . $kea->id_keahlian, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span> Edit</button>'); ?>
+                                </td>
                             </tr>
                         <?php $nomor++ ?>    
                         <?php endforeach;?>   

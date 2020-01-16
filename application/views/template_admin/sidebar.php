@@ -319,6 +319,7 @@
             <li><a href="<?=base_url('Admin/keahlian')?>"><i class="fa fa-circle-o"></i> List Data Keahlian</a></li>
             <li><a href="<?=base_url('Admin/user')?>"><i class="fa fa-circle-o"></i> List Data User</a></li>
             <li><a href="<?=base_url('Admin/teknisi')?>"><i class="fa fa-circle-o"></i> List Data Teknisi</a></li>
+            <li><a href="<?=base_url('Admin/admin')?>"><i class="fa fa-circle-o"></i> List Data Admin</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -335,7 +336,7 @@
             <li><a href="<?=base_url('Admin/addkeahlian')?>"><i class="fa fa-circle-o"></i> Tambah Keahlian</a></li>
             <li><a href="<?=base_url('Admin/adduser')?>"><i class="fa fa-circle-o"></i> Tambah User</a></li>
             <li><a href="<?=base_url('Admin/addteknisi')?>"><i class="fa fa-circle-o"></i> Tambah Teknisi</a></li>
-
+            <li><a href="<?=base_url('Admin/addAdmin')?>"><i class="fa fa-circle-o"></i> Tambah Admin</a></li>
           </ul>
         </li>
         <li class="treeview">
