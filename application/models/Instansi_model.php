@@ -24,12 +24,14 @@ class Instansi_model extends CI_Model{
     
     public function save(){
         $post = $this->input->post();
+        $this->id_instansi=$post["id_instansi"];
         $this->nama_instansi=$post["nama_instansi"];
         $this->alamat_instansi=$post["alamat_instansi"];
         $this->db->insert($this->_table, $this);
     }
     public function update(){
         $post = $this->input->post();
+        $this->id_instansi=$post["id_instansi"];
         $this->nama_instansi=$post["nama_instansi"];
         $this->alamat_instansi=$post["alamat_instansi"];
         $this->db->update($this->_table, $this, array('id_instansi' => $post['id_instansi']));
