@@ -34,6 +34,8 @@
                 <?php foreach($instansi as $ins): ?>
                 <tr>
                   <td><?php echo $nomor ?></td>
+                  <td hidden><?=$ins->id_instansi ?></td>
+
                   <td><?=$ins->nama_instansi ?></td>
                   <td><?=$ins->alamat_instansi ?></td>  
                   <td>
