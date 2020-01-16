@@ -115,14 +115,14 @@ Class Admin extends CI_Controller{
         $var= $this->Teknisi_model;
         $validation=$this->form_validation;
         $validation->set_rules($var->rules());
+        $data["teknisi"]= $this->Teknisi_model->getById($id_teknisi);
+        $data["keahlian"]=$this->Keahlian_model->getAll();
         
         if($validation->run()){
             $var->update();
              $this->session->set_flashdata('success','Berhasil Disimpan');
              redirect('Admin/teknisi');
          }
-         $data["teknisi"]= $var->getById($id_teknisi);
-         $data["keahlian"]=$var->getById($id_keahlian);
          if(!$data["teknisi"]) show_404();    
          $this->load->view('template_admin/header');
          $this->load->view('template_admin/sidebar');

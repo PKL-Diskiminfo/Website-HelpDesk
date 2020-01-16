@@ -29,6 +29,7 @@
                   <th>Email</th>
                   <th>No Telp</th>
                   <th>Keahlian</th>
+                  <th>Action</th>
 
                 </tr>
                 </thead>
@@ -37,7 +38,8 @@
                 <?php $nomor=1 ?>
                 <?php 
                  $this->db->select(
-                   't.nama_teknisi,
+                   't.id_teknisi,
+                   t.nama_teknisi,
                    t.kelamin_teknisi,
                    t.email_teknisi,
                    t.notelp_teknisi,
@@ -55,8 +57,8 @@
                   <td><?=$te->notelp_teknisi ?></td>  
                   <td><?=$te->nama_keahlian ?></td>
                   <td>
-                    <?php echo anchor('Admin/teknisiEdit/' . $te->id_tekknisi, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span> Edit</button>'); ?>
-                    <?php echo anchor('Admin/teknisiHapus/' . $te->id_teknisi, '<button class="btn btn-danger margin" type="button"><span class="fa fa-trash"></span> Hapus</button>'); ?>
+                    <?php echo anchor('Admin/teknisiEdit/' . $te->id_teknisi, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span></button>'); ?>
+                    <?php echo anchor('Admin/teknisiHapus/' . $te->id_teknisi, '<button class="btn btn-danger margin" type="button"><span class="fa fa-trash"></span></button>'); ?>
                   </td>
                 </tr> 
                 <?php $nomor++; ?>
