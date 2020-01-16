@@ -17,6 +17,8 @@
         <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title"> Tambah Data Admin</h3>
+      
+
             <form action="<?php echo base_url(). 'Admin/adminAdd'; ?>" method="post" enctype="multipart/form-data" >
               <div class="box box-body">
                 <div class="col-md-7">
