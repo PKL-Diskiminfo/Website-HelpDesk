@@ -4,6 +4,7 @@
 class Teknisi_model extends CI_Model{
     private $_table = "teknisi";
 
+    public $id_teknisi;
     public $nama_teknisi;
     public $kelamin_teknisi;
     public $email_teknisi;
@@ -43,6 +44,7 @@ class Teknisi_model extends CI_Model{
     }
     public function save(){
         $post = $this->input->post();
+        $this->id_teknisi=$post["id_teknisi"];
         $this->nama_teknisi=$post["nama_teknisi"];
         $this->kelamin_teknisi = $post["kelamin_teknisi"];
 
@@ -60,6 +62,7 @@ class Teknisi_model extends CI_Model{
     }
 
     public function update(){
+        $this->id_teknisi=$post["id_teknisi"];
         $this->nama_teknisi=$post["nama_teknisi"];
         $this->email_teknisi=$post["email_teknisi"];
         $this->kelamin_teknisi = $post["kelamin_teknisi"];
@@ -71,7 +74,7 @@ class Teknisi_model extends CI_Model{
         }        
         $this->notelp_teknisi = $post["notelp_teknisi"];
 
-        $this->id_instansi=$post["id_keahlian"];
+        $this->id_keahlian=$post["id_keahlian"];
 
         $this->db->update($this->_table, $this, array('id_teknisi' => $post['id_teknisi']));
     }

@@ -21,6 +21,7 @@
               <div class="box box-body">
                 <div class="col-md-7">
                   <div class="form-group">
+                  <input class="hidden" type="text" name="id_keahlian">
                       <label for="nama_keahlian">Nama Keahlian</label>
                       <input class="form-control" type="text" name="nama_keahlian">
                   </div>

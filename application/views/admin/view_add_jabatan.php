@@ -21,6 +21,7 @@
               <div class="box box-body">
                 <div class="col-md-7">
                   <div class="form-group">
+                    <input class="hidden" type="text" name="id_jabatan">
                       <label for="nama_jabatan">Nama Jabatan</label>
                       <input class="form-control" type="text" name="nama_jabatan">
                   </div>
