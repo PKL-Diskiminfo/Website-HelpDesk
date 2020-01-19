@@ -52,7 +52,9 @@
                       <select class="form-control select2" name="id_keahlian"style="width: 100%;">
                             <option value="" disable selected>Pilih Keahlian</option>
                             <?php foreach($keahlian as $kea):?>
-                                <option value="<?= $kea->id_keahlian?>"><?= $kea->nama_keahlian?></option>
+                                <!-- <option value="<?= $kea->id_keahlian?>"><?= $kea->nama_keahlian?></option> -->
+                                <option value="<?= $kea->id_keahlian ?>" <?php if ($teknisi->id_teknisi == $kea->id_keahlian) {echo 'selected';} ?>> <?= $kea->nama_keahlian ?> </option>
+
                             <?php  endforeach;?>
                       </select>
                   </div>
@@ -68,5 +70,5 @@
         </div>
       </div>
     </section>
- 
+    
  </div>   
