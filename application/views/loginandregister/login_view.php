@@ -31,8 +31,8 @@
         <div class="login-box-body">
             <p class="login-box-msg">Sign in to dashboard</p>
 
-            <form action="" method="POST">
-            
+            <form action="<?php echo site_url('auth/login');?>" method="POST">
+
             <?= $this->session->flashdata('message'); // SHOW ALERT SALAH ?>
 
                 <div class="form-group has-feedback">
@@ -43,7 +43,7 @@
                     <input type="password" class="form-control" name="password" placeholder="Password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
-                
+
                 <div class="row">
                     <!-- /.col -->
                     <div class="col-xs-12">
