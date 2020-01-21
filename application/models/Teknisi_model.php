@@ -62,6 +62,8 @@ class Teknisi_model extends CI_Model{
     }
 
     public function update(){
+        $post = $this->input->post();
+
         $this->id_teknisi=$post["id_teknisi"];
         $this->nama_teknisi=$post["nama_teknisi"];
         $this->email_teknisi=$post["email_teknisi"];

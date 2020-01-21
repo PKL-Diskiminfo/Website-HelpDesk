@@ -36,11 +36,11 @@ class User_model extends CI_Model{
             $this->password_user=md5($post["nama_user"]);
         } else {
             $this->password_user=md5($post["password_user"]) ;
-        }        
+        }
         $this->id_instansi=$post["id_instansi"];
         $this->id_jabatan=$post["id_jabatan"];
         $this->db->insert($this->_table, $this);
-        var_dump($post);
+        //var_dump($post);
     }
 
     public function update(){
@@ -52,7 +52,7 @@ class User_model extends CI_Model{
             $this->password=md5($post["nama_user"]);
         } else {
             $this->password=md5($post["password_user"]) ;
-        }        
+        }
         $this->id_instansi=$post["id_instansi"];
         $this->id_jabatan=$post["id_jabatan"];
 
@@ -63,5 +63,23 @@ class User_model extends CI_Model{
     {
         return $this->db->delete($this->_table, array("id_user" => $id_user));
     }
-    
+
+    function login($email,$password){
+        
+        $check = $this->db->get_where($this->_table, array('email_user'=>$email, 'password_user'=>$password));
+  		if($check->num_rows()>0){
+  			return 1;
+  		}else{
+  			return 0;
+  		}
+  	}
+
+  	function datauser($email,$password)
+  	{
+  		$query    = $this->db->get_where($this->_table, array('email_user'=>$email, 'password_user'=>$password));
+  		$result   = $query->row_array();
+
+  		return $result;
+  	}
+
 }

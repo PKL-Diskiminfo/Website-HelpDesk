@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Jan 2020 pada 08.39
+-- Waktu pembuatan: 20 Jan 2020 pada 09.33
 -- Versi server: 10.1.30-MariaDB
 -- Versi PHP: 7.2.2
 
@@ -61,7 +61,7 @@ CREATE TABLE `instansi` (
 --
 
 INSERT INTO `instansi` (`id_instansi`, `nama_instansi`, `alamat_instansi`) VALUES
-(1, 'Dinas Pariwisata', 'JL,babab'),
+(0, 'Dinas Pariwisata', 'JL,bababn'),
 (2, 'Dinas Kesehatan ', 'Jl.Suroyo No.58');
 
 -- --------------------------------------------------------
@@ -81,8 +81,7 @@ CREATE TABLE `jabatan` (
 
 INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
 (1, 'Pimpinan'),
-(2, 'Kepala Dinas'),
-(3, 'Pegawai');
+(2, 'Kepala Bidang Teknis');
 
 -- --------------------------------------------------------
 
@@ -100,7 +99,8 @@ CREATE TABLE `keahlian` (
 --
 
 INSERT INTO `keahlian` (`id_keahlian`, `nama_keahlian`) VALUES
-(1, 'Jaringan');
+(0, 'Jaringan'),
+(3, 'Konfigurasi');
 
 -- --------------------------------------------------------
 
@@ -118,12 +118,22 @@ CREATE TABLE `teknisi` (
   `id_keahlian` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data untuk tabel `teknisi`
+-- Struktur dari tabel `ticket`
 --
 
-INSERT INTO `teknisi` (`id_teknisi`, `nama_teknisi`, `email_teknisi`, `password_teknisi`, `kelamin_teknisi`, `notelp_teknisi`, `id_keahlian`) VALUES
-(1, 'Dila', 'rfadila19@gmail.com', '202cb962ac59075b964b07152d234b70', 'Perempuan', '082264377060', 1);
+CREATE TABLE `ticket` (
+  `id_ticket` int(11) NOT NULL,
+  `no_ticket` varchar(100) NOT NULL,
+  `judul_ticket` varchar(255) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `status` enum('Waiiting','Proses','Finish') NOT NULL,
+  `update_at` datetime NOT NULL,
+  `balasan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -146,8 +156,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `kelamin_user`, `email_user`, `password_user`, `id_instansi`, `id_jabatan`) VALUES
-(1, 'Rudi Arya', 'laki-laki', 'aryarudi@gmail.com', '19ec75f6f6306c0d87382b897e484d39', 1, 1),
-(2, 'Ari Fitra', 'laki-laki', 'arifitra@gmail.com', '4fe835a88ea7dd66e66bad2bb3c1225c', 1, 3);
+(1, 'Rudi Arya', 'laki-laki', 'aryarudi@gmail.com', '19ec75f6f6306c0d87382b897e484d39', 0, 1),
+(2, 'Kontol', 'laki-laki', 'kontol@gmail.com', 'kontol@gmail.com', 2, 1);
 
 --
 -- Indexes for dumped tables
@@ -185,6 +195,13 @@ ALTER TABLE `teknisi`
   ADD KEY `FK_TEKNISI_KEAHLIAN` (`id_keahlian`);
 
 --
+-- Indeks untuk tabel `ticket`
+--
+ALTER TABLE `ticket`
+  ADD PRIMARY KEY (`id_ticket`),
+  ADD KEY `FK_TICKET_USER` (`id_user`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -212,19 +229,25 @@ ALTER TABLE `instansi`
 -- AUTO_INCREMENT untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `keahlian`
 --
 ALTER TABLE `keahlian`
-  MODIFY `id_keahlian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_keahlian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `teknisi`
 --
 ALTER TABLE `teknisi`
-  MODIFY `id_teknisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_teknisi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `ticket`
+--
+ALTER TABLE `ticket`
+  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
@@ -241,6 +264,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `teknisi`
   ADD CONSTRAINT `FK_TEKNISI_KEAHLIAN` FOREIGN KEY (`id_keahlian`) REFERENCES `keahlian` (`id_keahlian`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `ticket`
+--
+ALTER TABLE `ticket`
+  ADD CONSTRAINT `ticket_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `user`
