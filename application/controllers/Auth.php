@@ -23,6 +23,7 @@ Class Auth extends CI_Controller{
     public function index(){
         $this->load->view('loginandregister/login_view');
     }
+    
     public function login()
     {
       $email    = $this->input->post('email');
