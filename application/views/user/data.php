@@ -141,6 +141,7 @@
                 <th>No</th>
                 <th>Nomor Ticket</th>
                 <th>Judul Ticket</th>
+                <th>Status</th>
                 <th>Option</th>
               </tr>
               </thead>
@@ -149,9 +150,10 @@
                   foreach($data as $a){ ?>
               <tr>
                 <td><?php echo $i;?></td>
-                <td><?php echo $a['nomor_ticket'];?></td>
+                <td><?php echo $a['no_ticket'];?></td>
                 <td><?php echo $a['judul_ticket'];?>
-                  <?php if($a['status'] != '0'){ ?>
+                <td><?php echo $a['status'];?>
+                  <?php if($a['status'] != null){ ?>
                   <span class="label label-danger pull-right">new!</span></td>
                   <?php } ?>
                 <td><a href="<?php echo site_url('dashboard/view_ticket/'.$a['id_ticket']);?>">VIEW</a></td>

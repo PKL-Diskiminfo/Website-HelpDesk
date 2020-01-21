@@ -44,6 +44,7 @@ Class Auth extends CI_Controller{
 			}
     }
 
+    
     public function register(){
         $data["instansi"] = $this->Instansi_model->getAll();
         $data["jabatan"] = $this->Jabatan_model->getAll();

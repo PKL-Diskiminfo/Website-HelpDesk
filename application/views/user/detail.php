@@ -131,7 +131,7 @@
       <section class="content">
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">Ticket no. <?php echo $data['nomor_ticket'] ?></h3>
+            <h3 class="box-title">Ticket no. <?php echo $data['no_ticket'] ?></h3>
           </div>
           <!-- /.box-header -->
           <div class="box-body no-padding">
@@ -146,7 +146,7 @@
             <div class="mailbox-read-info">
               <p>Your Ask,</p>
 
-              <?php echo $data['keluhan_ticket']; ?>
+              <?php echo $data['deskripsi']; ?>
             </div>
             <?php if(!empty($data['balasan'])){ ?>
             <div class="mailbox-read-message">

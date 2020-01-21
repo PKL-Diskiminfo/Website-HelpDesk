@@ -65,7 +65,8 @@ class User_model extends CI_Model{
     }
 
     function login($email,$password){
-  		$check = $this->db->get_where($this->_table, array('email_user'=>$email, 'password_user'=>$password));
+        
+        $check = $this->db->get_where($this->_table, array('email_user'=>$email, 'password_user'=>$password));
   		if($check->num_rows()>0){
   			return 1;
   		}else{
