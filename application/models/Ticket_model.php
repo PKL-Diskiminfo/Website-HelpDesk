@@ -8,40 +8,41 @@ class Ticket_model extends CI_Model{
     public $judul_ticket;
     public $no_ticket;
     public $deskripsi;
-    public $status="Waiting";
+    public $status;
     public $balasan;
     public $id_user;
     public $update_at;
   
-    
 
-    public function getAll(){
-       
-      return $this->db->get($this->_table)->result();
+    public function save(){
+      $post = $this->input->post();
+      date_default_timezone_set('Asia/Jakarta');
+      $this->id_user=$this->session->userdata('userid');
+      $this->judul_ticket=$post["judul_ticket"];
+      $this->no_ticket=date('siHYmd');
+      $this->deskripsi=$post["deskripsi"];
+      $this->update_at = date('Y-m-d H:i:s');
+      $this->db->insert($this->_table, $this);
+     } 
+
+    public function getAll(){ 
+      return $this->db->get($this->_table)->result_array();
     }
     
-
 
     public function getById($id_ticket){
       return $this->db->get_where($this->_table, ["id_ticket" => $id_ticket])->row();
     }
-     public function save(){
-      $post = $this->input->post();
-      date_default_timezone_set('Asia/Jakarta');
-      
-      $this->judul_ticket=$post["judul_ticket"];
-      $this->no_ticket=date('siHYmd');
-      $this->deskripsi=$post["deskripsi"];
-      $this->update_at = date('d-m-Y H:i:s');
-
-      $this->db->insert($this->_table, $this);
-
-     } 
+    
     
     
 
 
 
+
+     public function _status(){
+
+    }
     // public function add($data)
     // {
     //   $this->db->insert($this->_table, $data);
