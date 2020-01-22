@@ -21,6 +21,8 @@ class Ticket_model extends CI_Model{
       $this->judul_ticket=$post["judul_ticket"];
       $this->no_ticket=date('siHYmd');
       $this->deskripsi=$post["deskripsi"];
+      $this->status=$post["status"]="Waiting";
+
       $this->update_at = date('Y-m-d H:i:s');
       $this->db->insert($this->_table, $this);
      } 
