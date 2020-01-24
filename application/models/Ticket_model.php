@@ -10,19 +10,22 @@ class Ticket_model extends CI_Model{
     public $deskripsi;
     public $status;
     public $balasan;
-    public $id_user;
     public $update_at;
-  
+    
+    public $id_user;
+    public $id_instansi;
+    
 
     public function save(){
       $post = $this->input->post();
+
       date_default_timezone_set('Asia/Jakarta');
       $this->id_user=$this->session->userdata('userid');
       $this->judul_ticket=$post["judul_ticket"];
       $this->no_ticket=date('siHYmd');
       $this->deskripsi=$post["deskripsi"];
-      $this->status=$post["status"]="Waiting";
-
+      $this->id_instansi=$this->session->userdata('idinstansi');
+      $this->status=$post["status"]="Waiting";  
       $this->update_at = date('Y-m-d H:i:s');
       $this->db->insert($this->_table, $this);
      } 
