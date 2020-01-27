@@ -6,7 +6,8 @@ class Dashboard extends CI_Controller {
 	public function __construct(){
 			parent :: __construct();
 			$this->load->model(array(
-					"Ticket_model"    ));
+					"Ticket_model",
+				"Instansi_model"    ));
 		 if(empty($this->session->userdata('userid'))){
 				redirect('auth');
 			}
@@ -30,7 +31,7 @@ class Dashboard extends CI_Controller {
 				'judul_ticket'      		  => $this->input->post('judul_ticket'),
 				'no_ticket'       			=> date('sihYmd'),
 				'id_user'          				=> $this->session->userdata('userid'),
-				'deskripsi'    		  => $this->input->post('deskripsi'),
+				'deskripsi' 		   		  => $this->input->post('deskripsi'),
 				'status'     							=> 'Waiting',
 				'update_at'								=> date('Y-m-d h:i:s')
 		);
@@ -41,8 +42,14 @@ class Dashboard extends CI_Controller {
 
 	function ticket()
 	{
-		$data['data'] = $this->Ticket_model->list_ticket($this->session->userdata('userid'));
+		$data['data'] = $this->Ticket_model->getAll();
+		$data['instansi'] = $this->Instansi_model->getById($id_instansi);
+
+		// $data['data'] = $this->Ticket_model->list_ticket($this->session->userdata('userid'));
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/sidebar_user');
 		$this->load->view('user/data', $data);
+		$this->load->view('template_admin/footer');
 	}
 
 	function view_ticket($id)
@@ -51,10 +58,12 @@ class Dashboard extends CI_Controller {
 		$this->load->view('user/detail', $data);
 	}
 
-	// function addKeluhan(){
-	// 		$tambah = $this->Ticket_model;
-    //         $tambah->save();
-	// 		$this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
-    //     	redirect('Admin/index');
-	// }
+	function addKeluhan(){
+			$data["instansi"] = $this->Instansi_model->getAll();
+				
+			$tambah = $this->Ticket_model;
+            $tambah->save();
+			$this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
+        	redirect('Dashboard/index');
+	}
 }

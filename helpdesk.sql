@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Jan 2020 pada 09.33
--- Versi server: 10.1.30-MariaDB
--- Versi PHP: 7.2.2
+-- Waktu pembuatan: 27 Jan 2020 pada 06.21
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,7 +42,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `nama_admin`, `email_admin`, `password_admin`, `kelamin_admin`, `foto_admin`) VALUES
-(1, 'Fadila', 'rfadila@gmail.com', 'e10adc3949ba59abbe56e057f20f88', 'Perempuan', 'Fadila.png');
+(1, 'Fadila', 'rfadila@gmail.com', 'e10adc3949ba59abbe56e057f20f88', 'Perempuan', 'Fadila.png'),
+(2, 'Loli', 'loli@gmail.com', 'a436d68acf4ebf5396c7065f3ce965', 'Perempuan', 'Loli.png');
 
 -- --------------------------------------------------------
 
@@ -61,8 +62,7 @@ CREATE TABLE `instansi` (
 --
 
 INSERT INTO `instansi` (`id_instansi`, `nama_instansi`, `alamat_instansi`) VALUES
-(0, 'Dinas Pariwisata', 'JL,bababn'),
-(2, 'Dinas Kesehatan ', 'Jl.Suroyo No.58');
+(3, 'DInas Kelautan', 'Jawa Timur');
 
 -- --------------------------------------------------------
 
@@ -80,8 +80,7 @@ CREATE TABLE `jabatan` (
 --
 
 INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`) VALUES
-(1, 'Pimpinan'),
-(2, 'Kepala Bidang Teknis');
+(3, 'Direktur');
 
 -- --------------------------------------------------------
 
@@ -93,14 +92,6 @@ CREATE TABLE `keahlian` (
   `id_keahlian` int(11) NOT NULL,
   `nama_keahlian` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `keahlian`
---
-
-INSERT INTO `keahlian` (`id_keahlian`, `nama_keahlian`) VALUES
-(0, 'Jaringan'),
-(3, 'Konfigurasi');
 
 -- --------------------------------------------------------
 
@@ -129,11 +120,22 @@ CREATE TABLE `ticket` (
   `no_ticket` varchar(100) NOT NULL,
   `judul_ticket` varchar(255) NOT NULL,
   `id_user` int(11) NOT NULL,
+  `id_instansi` int(11) NOT NULL,
   `deskripsi` text NOT NULL,
-  `status` enum('Waiiting','Proses','Finish') NOT NULL,
+  `status` enum('Waiting','Proses','Finish') NOT NULL DEFAULT 'Waiting',
   `update_at` datetime NOT NULL,
-  `balasan` text NOT NULL
+  `balasan` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `ticket`
+--
+
+INSERT INTO `ticket` (`id_ticket`, `no_ticket`, `judul_ticket`, `id_user`, `id_instansi`, `deskripsi`, `status`, `update_at`, `balasan`) VALUES
+(4, '02321920200124', 'Coba ', 4, 3, '<p>Coba saya</p>\r\n', 'Waiting', '2020-01-24 19:32:02', NULL),
+(6, '20472320200124', 'Is Back', 4, 3, '<p>1</p>\r\n', 'Waiting', '2020-01-24 23:47:20', NULL),
+(7, '03482320200124', 'Coba', 4, 3, '<p>SAya</p>\r\n', 'Waiting', '2020-01-24 23:48:03', NULL),
+(9, '08001120200127', 'asasa', 4, 3, '<p>dnsds</p>\r\n', 'Waiting', '2020-01-27 11:00:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -156,8 +158,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `kelamin_user`, `email_user`, `password_user`, `id_instansi`, `id_jabatan`) VALUES
-(1, 'Rudi Arya', 'laki-laki', 'aryarudi@gmail.com', '19ec75f6f6306c0d87382b897e484d39', 0, 1),
-(2, 'Kontol', 'laki-laki', 'kontol@gmail.com', 'kontol@gmail.com', 2, 1);
+(4, 'Rudi Arya', 'laki-laki', 'aryarudi@gmail.com', '19ec75f6f6306c0d87382b897e484d39', 3, 3);
 
 --
 -- Indexes for dumped tables
@@ -199,7 +200,8 @@ ALTER TABLE `teknisi`
 --
 ALTER TABLE `ticket`
   ADD PRIMARY KEY (`id_ticket`),
-  ADD KEY `FK_TICKET_USER` (`id_user`);
+  ADD KEY `FK_TICKET_USER` (`id_user`),
+  ADD KEY `FK_TICKET_INSTANSI` (`id_instansi`);
 
 --
 -- Indeks untuk tabel `user`
@@ -217,19 +219,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `instansi`
 --
 ALTER TABLE `instansi`
-  MODIFY `id_instansi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_instansi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `keahlian`
@@ -241,19 +243,19 @@ ALTER TABLE `keahlian`
 -- AUTO_INCREMENT untuk tabel `teknisi`
 --
 ALTER TABLE `teknisi`
-  MODIFY `id_teknisi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_teknisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `ticket`
 --
 ALTER TABLE `ticket`
-  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ticket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

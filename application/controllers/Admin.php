@@ -9,6 +9,7 @@ Class Admin extends CI_Controller{
             "Instansi_model",
             "Jabatan_model",
             "User_model",
+            "Ticket_model",
             "Keahlian_model",
             "Teknisi_model",
             "Admin_model")
@@ -137,6 +138,14 @@ Class Admin extends CI_Controller{
      }
 
      // ===========BACK END HAPUS=============
+     public function ticketHapus($id_ticket = null){
+        if (!isset($id_ticket)) show_404();
+
+		if ($this->Ticket_model->delete($id_ticket)) {
+			redirect('Admin/trouble');
+		} 
+     }
+
      public function keahlianHapus($id_keahlian = null){
         if (!isset($id_keahlian)) show_404();
 
@@ -185,6 +194,20 @@ Class Admin extends CI_Controller{
         $this->load->view('template_admin/footer');
     }
 
+
+
+    // =============== Trouble ============== //
+    public function trouble(){
+        $data["instansi"]= $this->Instansi_model->getAll();
+        $data["ticket"]= $this->Ticket_model->getAll();
+        $data["user"]= $this->User_model->getAll();
+
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_list_trouble',$data);    
+        $this->load->view('template_admin/footer');
+    }
+    
     // ================ADMIN ==================//
     public function admin(){
         $data["admin"]= $this->Admin_model->getAll();
