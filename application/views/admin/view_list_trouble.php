@@ -44,6 +44,7 @@
                    i.nama_instansi,
                    t.deskripsi ,
                    t.status
+                   t.balasan;
 
                    ');
                  $this->db->join('user as u','u.id_user = t.id_user', 'left');
@@ -58,7 +59,9 @@
                   <td><?= $ta->nama_user?></td>  
                   <td><?= $ta->nama_instansi?></td>
                   <td><?= $ta->deskripsi?></td>
-                  <td><?= $ta->status?></td>   
+                  <td><?= $ta->status?></td>  
+                  <td><?= $ta->balasan?></td>  
+
                   <td>
                  <button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span></button>
                  <?php echo anchor('Admin/ticketHapus/' . $ta->id_ticket, '<button class="btn btn-danger margin" type="button"><span class="fa fa-trash"></span></button>'); ?>

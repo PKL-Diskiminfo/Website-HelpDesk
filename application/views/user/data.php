@@ -17,6 +17,8 @@
                 <th>Nomor Ticket</th>
                 <th>Judul Ticket</th>
                 <th>Status</th>
+                <th>Balasan</th>
+
                 <th>Option</th>
               </tr>
               </thead>
@@ -31,6 +33,8 @@
                   <!-- <?php if($a['status'] != null){ ?>
                   <span class="label label-danger pull-right">new!</span></td>
                   <?php } ?> -->
+                  <td><?php echo $a['balasan'];?>
+
                 <td><a href="<?php echo site_url('dashboard/view_ticket/'.$a['id_ticket']);?>">VIEW</a></td>
               </tr>
               <?php $i++;}?>

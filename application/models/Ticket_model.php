@@ -27,6 +27,8 @@ class Ticket_model extends CI_Model{
       $this->id_instansi=$this->session->userdata('idinstansi');
       $this->status=$post["status"]="Waiting";  
       $this->update_at = date('Y-m-d H:i:s');
+      $this->balasan =$post["balasan"]="Waiting for reply";
+
       $this->db->insert($this->_table, $this);
      } 
 
