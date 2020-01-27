@@ -11,7 +11,8 @@ Class Auth extends CI_Controller{
         $this->load->model(array(
             "User_model",
             "Instansi_model",
-            "Jabatan_model"    ));
+            "Jabatan_model" , 
+            "Ticket_model"  ));
        if($this->session->userdata('email_admin')){
           echo "ada sesi";
             }else{
@@ -34,7 +35,8 @@ Class Auth extends CI_Controller{
 			$data_session = array(
 								'username'    => $userlogin['nama_user'],
                 'useremail'   => $userlogin['email_user'],
-								'userid'      => $userlogin['id_user']
+                'userid'      => $userlogin['id_user'],
+                'idinstansi'  => $userlogin['id_instansi']
 							);
 			$this->session->set_userdata($data_session);
 			   redirect('dashboard');

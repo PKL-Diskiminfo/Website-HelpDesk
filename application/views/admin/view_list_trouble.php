@@ -30,28 +30,25 @@
                   <th>Instansi</th>
                   <th>Deskripsi</th>
                   <th>Status</th>
-
                   <th>Action</th>
-
                 </tr>
                 </thead>
                 <tbody>
-
                 <?php $nomor=1 ?>
                 <?php 
                  $this->db->select(
                   't.id_ticket,
                    t.no_ticket,
-                   t.status,
                    t.update_at,
                    u.nama_user,
                    i.nama_instansi,
-                   t.deskripsi 
+                   t.deskripsi ,
+                   t.status
+
                    ');
-                 $this->db->join('user as u','u.id_user = t.id_ticket', 'left');
-                 $this->db->join('instansi as i','i.id_instansi = t.id_ticket', 'left');
+                 $this->db->join('user as u','u.id_user = t.id_user', 'left');
+                 $this->db->join('instansi as i','i.id_instansi = u.id_instansi','left');
                  $query = $this->db->get('ticket as t')->result_object();
-   
                 //  var_dump($query);die;
                 foreach($query as $ta): ?>
                 <tr>
@@ -61,28 +58,16 @@
                   <td><?= $ta->nama_user?></td>  
                   <td><?= $ta->nama_instansi?></td>
                   <td><?= $ta->deskripsi?></td>
-                  <td><?= $ta->status?></td>
-
-
-                 
+                  <td><?= $ta->status?></td>   
                   <td>
                  <button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span></button>
-                    <button class="btn btn-danger margin" type="button"><span class="fa fa-trash"></span></button>
+                 <?php echo anchor('Admin/ticketHapus/' . $ta->id_ticket, '<button class="btn btn-danger margin" type="button"><span class="fa fa-trash"></span></button>'); ?>
                   </td>
                 </tr> 
                 <?php $nomor++; ?>
                 <?php endforeach; ?>
                 </tbody>
-                <!-- <tfoot>
-                <tr>
-                  <th>No</th>
-                  <th>Nama Lengkap</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Email</th>
-                  <th>No Telp</th>
-                  <th>Keahlian</th>
-                </tr>
-                </tfoot> -->
+            
               </table>
             </div>
             <!-- /.box-body -->

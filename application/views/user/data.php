@@ -28,9 +28,9 @@
                 <td><?php echo $a['no_ticket'];?></td>
                 <td><?php echo $a['judul_ticket'];?>
                 <td><?php echo $a['status'];?>
-                  <?php if($a['status'] != null){ ?>
+                  <!-- <?php if($a['status'] != null){ ?>
                   <span class="label label-danger pull-right">new!</span></td>
-                  <?php } ?>
+                  <?php } ?> -->
                 <td><a href="<?php echo site_url('dashboard/view_ticket/'.$a['id_ticket']);?>">VIEW</a></td>
               </tr>
               <?php $i++;}?>

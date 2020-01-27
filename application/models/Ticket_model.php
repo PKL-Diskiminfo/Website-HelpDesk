@@ -39,7 +39,11 @@ class Ticket_model extends CI_Model{
       return $this->db->get_where($this->_table, ["id_ticket" => $id_ticket])->row();
     }
     
-    
+    public function delete($id_ticket){
+      return $this->db->delete($this->_table, array("id_ticket" => $id_ticket));
+
+    }
+
     
 
 

@@ -43,7 +43,7 @@ class Dashboard extends CI_Controller {
 	function ticket()
 	{
 		$data['data'] = $this->Ticket_model->getAll();
-		$data['instansi'] = $this->Instansi_model->getAll();
+		$data['instansi'] = $this->Instansi_model->getById($id_instansi);
 
 		// $data['data'] = $this->Ticket_model->list_ticket($this->session->userdata('userid'));
 		$this->load->view('template_admin/header');
@@ -60,7 +60,7 @@ class Dashboard extends CI_Controller {
 
 	function addKeluhan(){
 			$data["instansi"] = $this->Instansi_model->getAll();
-
+				
 			$tambah = $this->Ticket_model;
             $tambah->save();
 			$this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
