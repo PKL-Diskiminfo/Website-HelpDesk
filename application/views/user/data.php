@@ -24,7 +24,12 @@
               </thead>
               <tbody>
               <?php $i=1;
-                  foreach($data as $a){ ?>
+                  foreach($data as $a){
+                     ?>
+               <?php 
+               if ($a['id_instansi']&& $this->session->userdata('id_instansi')){ ?>   
+                       var_dump($a);
+
               <tr>
                 <td><?php echo $i;?></td>
                 <td><?php echo $a['no_ticket'];?></td>
@@ -37,6 +42,7 @@
 
                 <td><a href="<?php echo site_url('dashboard/view_ticket/'.$a['id_ticket']);?>">VIEW</a></td>
               </tr>
+              <?php }?>
               <?php $i++;}?>
               </tbody>
             </table>
