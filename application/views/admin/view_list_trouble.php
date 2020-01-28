@@ -28,6 +28,7 @@
                   <th>Nomer Ticket</th>
                   <th>Nama Lengkap</th>
                   <th>Instansi</th>
+                  <th>Tanggal Kerusakan</th>
                   <th>Deskripsi</th>
                   <th>Status</th>
                   <th>Action</th>
@@ -42,6 +43,7 @@
                    t.update_at,
                    u.nama_user,
                    i.nama_instansi,
+                   t.tanggalkerusakan,
                    t.deskripsi ,
                    t.status
 
@@ -57,6 +59,7 @@
                   <td><?= $ta->no_ticket?></td>
                   <td><?= $ta->nama_user?></td>  
                   <td><?= $ta->nama_instansi?></td>
+                  <td><?= $ta->tanggalkerusakan?></td>
                   <td><?= $ta->deskripsi?></td>
                   <td><?= $ta->status?></td>   
                   <td>

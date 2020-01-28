@@ -51,6 +51,7 @@
                     </div>
                     <!-- /.col -->
                 </div>
+                <p align="center" style="color: #000000;"><a href="<?= base_url('auth/register') ?>">Register</p>
             </form>
 
         </div>

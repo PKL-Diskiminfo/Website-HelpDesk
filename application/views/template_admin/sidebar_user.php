@@ -292,69 +292,17 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        </li>
         <li>
           <a href="<?=base_url('Dashboard/index')?>">
             <i class="fa fa-plus"></i> <span>Buat Keluhan</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-list"></i>
-            <span>List Data</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+        <li>
+          <a href="<?=base_url('Dashboard/ticket')?>">
+            <i class="fa fa-list"></i> <span>List Data Keluhan</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="<?=base_url('Admin/instansi')?>"><i class="fa fa-circle-o"></i> List Data Instansi</a></li>
-            <li><a href="<?=base_url('Admin/jabatan')?>"><i class="fa fa-circle-o"></i> List Data Jabatan</a></li>
-            <li><a href="<?=base_url('Admin/keahlian')?>"><i class="fa fa-circle-o"></i> List Data Keahlian</a></li>
-            <li><a href="<?=base_url('Admin/user')?>"><i class="fa fa-circle-o"></i> List Data User</a></li>
-            <li><a href="<?=base_url('Admin/teknisi')?>"><i class="fa fa-circle-o"></i> List Data Teknisi</a></li>
-            <li><a href="<?=base_url('Admin/admin')?>"><i class="fa fa-circle-o"></i> List Data Admin</a></li>
-          </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-plus"></i>
-            <span>Tambah Data</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?=base_url('Admin/addinstansi')?>"><i class="fa fa-circle-o"></i> Tambah Instansi</a></li>
-            <li><a href="<?=base_url('Admin/addjabatan')?>"><i class="fa fa-circle-o"></i> Tambah Jabatan</a></li>
-            <li><a href="<?=base_url('Admin/addkeahlian')?>"><i class="fa fa-circle-o"></i> Tambah Keahlian</a></li>
-            <li><a href="<?=base_url('Admin/adduser')?>"><i class="fa fa-circle-o"></i> Tambah User</a></li>
-            <li><a href="<?=base_url('Admin/addteknisi')?>"><i class="fa fa-circle-o"></i> Tambah Teknisi</a></li>
-            <li><a href="<?=base_url('Admin/addAdmin')?>"><i class="fa fa-circle-o"></i> Tambah Admin</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-          </ul>
-        </li>        
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+        <li><a href="#"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
