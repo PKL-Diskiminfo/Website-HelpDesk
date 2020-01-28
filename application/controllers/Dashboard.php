@@ -20,7 +20,7 @@ class Dashboard extends CI_Controller {
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/sidebar_user');
 
-		$this->load->view('user/index',);
+		$this->load->view('user/index');
 		$this->load->view('template_admin/footer');
 
 	}
@@ -42,8 +42,10 @@ class Dashboard extends CI_Controller {
 
 	function ticket()
 	{
+		$var= $this->Instansi_model;
 		$data['data'] = $this->Ticket_model->getAll();
-		$data['instansi'] = $this->Instansi_model->getById($id_instansi);
+		// $data['instansi'] = $this->Instansi_model->getById();
+		$data["instansi"]= $var->getById('idinstansi');
 
 		// $data['data'] = $this->Ticket_model->list_ticket($this->session->userdata('userid'));
 		$this->load->view('template_admin/header');

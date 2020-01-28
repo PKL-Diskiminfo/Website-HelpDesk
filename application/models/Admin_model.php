@@ -93,4 +93,22 @@ class Admin_model extends CI_Model{
             return array_map('unlink', glob(FCPATH . "foto/admin/$filename.*"));
         }
     }
+
+    function login($email,$password){
+        
+        $check = $this->db->get_where($this->_table, array('email_admin'=>$email, 'password_admin'=>$password));
+  		if($check->num_rows()>0){
+  			return 1;
+  		}else{
+  			return 0;
+  		}
+  	}
+
+  	function datauser($email,$password)
+  	{
+  		$query    = $this->db->get_where($this->_table, array('email_admin'=>$email, 'password_admin'=>$password));
+  		$result   = $query->row_array();
+
+  		return $result;
+  	}
 }

@@ -10,6 +10,7 @@ Class Auth extends CI_Controller{
         parent :: __construct();
         $this->load->model(array(
             "User_model",
+            "Admin_model",
             "Instansi_model",
             "Jabatan_model" , 
             "Ticket_model"  ));
@@ -45,7 +46,6 @@ Class Auth extends CI_Controller{
 				 redirect('auth');
 			}
     }
-
     
     public function register(){
         $data["instansi"] = $this->Instansi_model->getAll();
