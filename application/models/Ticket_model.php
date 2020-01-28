@@ -7,6 +7,7 @@ class Ticket_model extends CI_Model{
     public $id_ticket;
     public $judul_ticket;
     public $no_ticket;
+    public $tanggalkerusakan;
     public $deskripsi;
     public $status;
     public $balasan;
@@ -23,6 +24,7 @@ class Ticket_model extends CI_Model{
       $this->id_user=$this->session->userdata('userid');
       $this->judul_ticket=$post["judul_ticket"];
       $this->no_ticket=date('siHYmd');
+      $this->tanggalkerusakan=$post["tanggalkerusakan"];
       $this->deskripsi=$post["deskripsi"];
       $this->id_instansi=$this->session->userdata('idinstansi');
       $this->status=$post["status"]="Waiting";  

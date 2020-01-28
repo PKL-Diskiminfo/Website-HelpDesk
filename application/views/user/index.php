@@ -22,24 +22,22 @@
                       <label for="input1">Judul Ticket:</label>
                       <input type="text" class="form-control" id="input1" name="judul_ticket">
                     </div>
+                        <!-- Date -->
+                        <div class="form-group">
+                          <label>Tanggal Kerusakan</label>
+
+                          <div class="input-group date">
+                            <div class="input-group-addon">
+                              <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control pull-right" id="datepicker" name="datepicker">
+                          </div>
+                          </div>
                     <div class="form-group">
                       <label>Deskripsi:</label>
                       <textarea id="editor1" name="deskripsi"></textarea>
                     </div>
                     <div class="container">
-    <div class="col-sm-6" style="height:130px;">
-        <div class="form-group">
-            <div class='input-group date' id='datetimepicker8'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="fa fa-calendar">
-                    <script src="<?php echo base_url('date.js'); ?>"></script>
-                    </span>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
                     <button type="submit" class="btn btn-primary">Submit</button>                              
                   </div>
                   
