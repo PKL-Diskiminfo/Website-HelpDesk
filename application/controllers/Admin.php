@@ -54,6 +54,25 @@ Class Admin extends CI_Controller{
 
 
 //========BACK END EDIT=====================//
+    public function ticketingRespon($id_ticket= null){
+        if(!isset($id_ticket)) redirect('Admin/trouble');
+        $var= $this->Ticket_model;
+        $validation=$this->form_validation;
+        // $validation->set_rules($var->rules());
+        
+        if($validation->run()){
+            $var->update();
+             $this->session->set_flashdata('success','Berhasil Disimpan');
+             redirect('Admin/trouble');
+         }
+         $data["ticket"]= $var->getById($id_ticket);
+         if(!$data["ticket"]) show_404();    
+         $this->load->view('template_admin/header');
+         $this->load->view('template_admin/sidebar');
+         $this->load->view('admin/view_respon',$data);    
+         $this->load->view('template_admin/footer');
+    }
+
     public function instansiEdit($id_instansi= null){
        if(!isset($id_instansi)) redirect('Admin/instansi');
        $var= $this->Instansi_model;
