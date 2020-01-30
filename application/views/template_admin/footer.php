@@ -254,6 +254,14 @@
         })
     })
 </script> 
+
+//Date picker
+   <script>
+    $('#datepicker').datepicker({
+      autoclose: true
+    })
+    </script>
+
 <script src="<?=base_url('assets/')?>bower_components/ckeditor/ckeditor.js"></script>
 
 

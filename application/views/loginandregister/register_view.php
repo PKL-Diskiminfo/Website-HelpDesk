@@ -40,6 +40,12 @@
         <input type="text" class="form-control" placeholder="Full name" name="nama_user">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
+
+      <div class="form-group has-feedback">
+        <input type="number" class="form-control" placeholder="Number Phone" name="notelp_user">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+
       <div class="form-group has-feedback">
         <select class="form-control select2" style="width: 100%;" name="kelamin_user" >
             <option selected="selected" >Jenis Kelamin</option>

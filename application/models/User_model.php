@@ -9,7 +9,7 @@ class User_model extends CI_Model{
     public $email_user;
     public $password_user;
     public $kelamin_user;
-
+    public $notelp_user;
     public $id_instansi;
     public $id_jabatan;
 
@@ -30,6 +30,7 @@ class User_model extends CI_Model{
         $post = $this->input->post();
         $this->nama_user=$post["nama_user"];
         $this->kelamin_user = $post["kelamin_user"];
+        $this->notelp_user=$post["notelp_user"];
 
         $this->email_user=$post["email_user"];
         if (empty($post["password_user"])){
@@ -47,6 +48,7 @@ class User_model extends CI_Model{
         $this->nama_user=$post["nama_user"];
         $this->email_user=$post["email_user"];
         $this->kelamin_user = $post["kelamin_user"];
+        $this->notelp_user=$post["notelp_user"];
 
         if (empty($post["password_user"])){
             $this->password=md5($post["nama_user"]);

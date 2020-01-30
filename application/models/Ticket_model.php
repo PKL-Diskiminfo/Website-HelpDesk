@@ -11,7 +11,8 @@ class Ticket_model extends CI_Model{
     public $status;
     public $balasan;
     public $update_at;
-    
+    public $tanggal_rusak;
+
     public $id_user;
     public $id_instansi;
     
@@ -39,7 +40,7 @@ class Ticket_model extends CI_Model{
       $this->status=$post["status"]="Waiting";  
       $this->update_at = date('Y-m-d H:i:s');
       $this->balasan =$post["balasan"]="Waiting for reply";
-
+      $this->tanggal_rusak=$post["tanggal_rusak"];
       $this->db->insert($this->_table, $this);
      } 
 

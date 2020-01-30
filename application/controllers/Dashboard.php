@@ -75,8 +75,7 @@ class Dashboard extends CI_Controller {
 	}
 
 	function addKeluhan(){
-			$data["instansi"] = $this->Instansi_model->getAll();
-				
+			$data["instansi"] = $this->Instansi_model->getAll();		
 			$tambah = $this->Ticket_model;
             $tambah->save();
 			$this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
