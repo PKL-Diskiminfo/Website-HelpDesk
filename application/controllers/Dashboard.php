@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller {
 			parent :: __construct();
 			$this->load->model(array(
 					"Ticket_model",
-				"Instansi_model"    ));
+				"Instansi_model" ,"User_model"));
 		 if(empty($this->session->userdata('userid'))){
 				redirect('auth');
 			}
@@ -40,6 +40,20 @@ class Dashboard extends CI_Controller {
 		redirect('user/ticket');
 	}
 
+	
+	function ticketPerson()
+	{
+		$var= $this->User_model;
+		$data['data'] = $this->Ticket_model->getAll();
+		// $data[' instansi'] = $this->Instansi_model->getById();
+		$data["user"]= $var->getById('iduser');
+
+		// $data['data'] = $this->Ticket_model->list_ticket($this->session->userdata('userid'));
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/sidebar_user');
+		$this->load->view('user/data_ticketing', $data);
+		$this->load->view('template_admin/footer');
+	}
 	function ticket()
 	{
 		$var= $this->Instansi_model;
@@ -54,7 +68,7 @@ class Dashboard extends CI_Controller {
 		$this->load->view('template_admin/footer');
 	}
 
-	function view_ticket($id)
+	function view_ticket($id_ticket)
 	{
 		$data['data'] = $this->Ticket_model->getViewTicket('id_ticket');
 		$this->load->view('user/detail', $data);

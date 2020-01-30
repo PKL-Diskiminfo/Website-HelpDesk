@@ -14,8 +14,11 @@
               <thead>
               <tr>
                 <th>No</th>
+                <th>Tanggal</th>
                 <th>Nomor Ticket</th>
                 <th>Judul Ticket</th>
+                <th>Status</th>
+                <th>Id_USer</th>
                 <th>status</th>
                 <th>balasan</th>
                 <th>Option</th>
@@ -25,16 +28,21 @@
               <?php 
               $i=1;
                   foreach($data as $a){?>
-                    <?php if($a['id_instansi']!=$this->session->userdata('idinstansi') ) continue;?>  
+                    <?php if($a['id_user']!=$this->session->userdata('userid') ) continue;?>  
               <tr>
                 <td><?php echo $i;?></td>
+                <td><?php echo $a['update_at'];?></td>
+
                 <td><?php echo $a['no_ticket'];?></td>
                 <td><?php echo $a['judul_ticket'];?>
                 <td><?php echo $a['status'];?>
-                  <?php if($a['status'] != "Waiting"){ ?>
-                  <span class="label label-danger pull-right">new!</span></td>                  
-                  <?php } ?>
+                <td><?php echo $a['id_user'];?>
+                <td><?php echo $a['status'];?>
+                  <!-- <?php if($a['status'] != null){ ?>
+                  <span class="label label-danger pull-right">new!</span></td>
+                  <?php } ?> -->
                   <td><?php echo $a['balasan'];?>
+
                 <td><a href="<?php echo site_url('dashboard/view_ticket/'.$a['id_ticket']);?>">VIEW</a></td>
               </tr>
               <?php $i++;}?>

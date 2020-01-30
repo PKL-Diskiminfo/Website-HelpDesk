@@ -28,7 +28,7 @@
                   <th>Nomer Ticket</th>
                   <th>Nama Lengkap</th>
                   <th>Instansi</th>
-                  <th>Deskripsi</th>
+                  <th>Judul Ticket</th>
                   <th>Status</th>
                   <th>Balasan</th>
 
@@ -44,7 +44,7 @@
                    t.update_at,
                    u.nama_user,
                    i.nama_instansi,
-                   t.deskripsi ,
+                   t.judul_ticket ,
                    t.balasan,
                    t.status
 
@@ -60,7 +60,7 @@
                   <td><?= $ta->no_ticket?></td>
                   <td><?= $ta->nama_user?></td>  
                   <td><?= $ta->nama_instansi?></td>
-                  <td><?= $ta->deskripsi?></td>
+                  <td><?= $ta->judul_ticket?></td>
                   <td><?= $ta->status?></td>  
                   <td><?= $ta->balasan?></td>  
 
