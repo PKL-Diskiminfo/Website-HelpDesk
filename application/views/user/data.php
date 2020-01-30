@@ -17,28 +17,25 @@
                 <th>Nomor Ticket</th>
                 <th>Judul Ticket</th>
                 <th>Status</th>
-
-                <th>Status</th>
-
-                <th>Balasan</th>
-
+                <th>Id_USer</th>
+                <th>id_instansi</th>
+                <th>status</th>
+                <th>balasan</th>
                 <th>Option</th>
               </tr>
               </thead>
               <tbody>
-              <!-- <?php print_r($data);?> -->
+              
               <?php $i=1;
-                  foreach($data as $a){?>  
+                  foreach($data as $a){?>
+                    <?php if($a['id_instansi']!=$this->session->userdata('idinstansi') ) continue;?>  
               <tr>
                 <td><?php echo $i;?></td>
                 <td><?php echo $a['no_ticket'];?></td>
                 <td><?php echo $a['judul_ticket'];?>
                 <td><?php echo $a['status'];?>
-
                 <td><?php echo $a['id_user'];?>
-
                 <td><?php echo $a['id_instansi'];?>
-
                 <td><?php echo $a['status'];?>
                   <!-- <?php if($a['status'] != null){ ?>
                   <span class="label label-danger pull-right">new!</span></td>

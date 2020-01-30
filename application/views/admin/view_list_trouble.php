@@ -65,7 +65,7 @@
                   <td><?= $ta->balasan?></td>  
 
                   <td>
-                  <?php echo anchor('Admin/ticketingRespon/' . $ta->id_ticket, '<button class="btn btn-danger margin" type="button"><span class="fa fa-pencil"></span></button>'); ?>
+                  <?php echo anchor('Admin/reply/' . $ta->id_ticket, '<button class="btn btn-danger margin" type="button"><span class="fa fa-pencil"></span></button>'); ?>
                  <?php echo anchor('Admin/ticketHapus/' . $ta->id_ticket, '<button class="btn btn-danger margin" type="button"><span class="fa fa-trash"></span></button>'); ?>
                   </td>
                 </tr> 

@@ -7,7 +7,6 @@ class Ticket_model extends CI_Model{
     public $id_ticket;
     public $judul_ticket;
     public $no_ticket;
-    public $tanggalkerusakan;
     public $deskripsi;
     public $status;
     public $balasan;
@@ -17,6 +16,17 @@ class Ticket_model extends CI_Model{
     public $id_instansi;
     
 
+    public function rules(){
+      return [
+      ['field'=>'judul_ticket',
+      'label' => 'judul_ticket',
+      'rules' => 'required'],
+      ['field'=>'balasan',
+      'label' => 'balasan',
+      'rules' => 'required']
+      ];
+    }
+
     public function save(){
       $post = $this->input->post();
 
@@ -24,7 +34,6 @@ class Ticket_model extends CI_Model{
       $this->id_user=$this->session->userdata('userid');
       $this->judul_ticket=$post["judul_ticket"];
       $this->no_ticket=date('siHYmd');
-      $this->tanggalkerusakan=$post["tanggalkerusakan"];
       $this->deskripsi=$post["deskripsi"];
       $this->id_instansi=$this->session->userdata('idinstansi');
       $this->status=$post["status"]="Waiting";  
@@ -43,12 +52,11 @@ class Ticket_model extends CI_Model{
       $this->id_user=$this->session->userdata('userid');
       $this->judul_ticket=$post["judul_ticket"];
       $this->no_ticket=date('siHYmd');
-      $this->tanggalkerusakan=$post["tanggalkerusakan"];
       $this->deskripsi=$post["deskripsi"];
       $this->id_instansi=$this->session->userdata('idinstansi');
-      $this->status=$post["status"]="Waiting";  
+      $this->status=$post["status"];  
       $this->update_at = date('Y-m-d H:i:s');
-      $this->balasan =$post["balasan"]="Waiting for reply";
+      $this->balasan =$post["balasan"];
   
 
         $this->db->update($this->_table, $this, array('id_ticket' => $post['id_ticket']));
@@ -89,9 +97,9 @@ class Ticket_model extends CI_Model{
     //   return $query->result_array();
     // }
 
-    function getViewTicket($id)
+    function getViewTicket($id_ticket)
     {
-      $this->db->where('id_ticket', $id);
+      $this->db->where('id_ticket', $id_ticket);
       $query = $this->db->get_where($this->_table);
       return $query->row_array();
     }

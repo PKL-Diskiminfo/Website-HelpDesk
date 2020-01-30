@@ -20,9 +20,6 @@ Class Auth extends CI_Controller{
           echo "tidak";
             }
     }
-
-    
-
     public function index(){
         $this->load->view('loginandregister/login_view');
     }

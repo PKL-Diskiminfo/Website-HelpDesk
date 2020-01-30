@@ -18,10 +18,10 @@
           <div class="box box-success">
             <div class="box-header with-border">
                 <h3 class="box-title"> Tambah Teknisi</h3>
-            <form action="<?php echo base_url("Admin/ticketingRespon/$ticket->id_ticket") ?>" method="post" enctype="multipart/form-data"> 
+            <form action="<?php echo base_url('Admin/ticketingRespon/'.$ticket->id_ticket) ?>" method="post" enctype="multipart/form-data"> 
             <div class="box box-body">
             
-            <input type="text" class="hidden" value="<?php echo $ticket->id_ticket?>">
+            <input type="text" name="id_ticket" class="hidden" value="<?php echo $ticket->id_ticket?>">
             
             
                 <div class="col-md-8">
@@ -45,7 +45,8 @@
                   <div class="col-md-8">
                     <div class="form-group">
                         <label for="judul_ticket">Judul Ticket</label>
-                        <input disabled class="form-control" type="text" name="judul_ticket" value="<?php echo $ticket->judul_ticket?>">
+                        <input disabled class="form-control" type="text" value="<?php echo $ticket->judul_ticket?>">
+                        <input class="form-control" type="hidden" name="judul_ticket" value="<?php echo $ticket->judul_ticket?>">
                     </div>
                   </div>  
   
@@ -70,7 +71,7 @@
                         <select name="status" class="form-control">
                           <option value="Waiting"  selected>Waiting</option>
                           <option value="Proses">Proses</option>
-                          <option value="Finishing">Finishing</option>
+                          <option value="Finish">Finishing</option>
                         </select> 
                     </div>
                   </div>    
