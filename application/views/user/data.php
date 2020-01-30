@@ -17,7 +17,6 @@
                 <th>Nomor Ticket</th>
                 <th>Judul Ticket</th>
                 <th>Status</th>
-                <th>id_instansi</th>
 
                 <th>Balasan</th>
 
@@ -25,7 +24,7 @@
               </tr>
               </thead>
               <tbody>
-              <?php print_r($data);?>
+              <!-- <?php print_r($data);?> -->
               <?php $i=1;
                   foreach($data as $a){
 
@@ -38,7 +37,6 @@
                 <td><?php echo $a['no_ticket'];?></td>
                 <td><?php echo $a['judul_ticket'];?>
                 <td><?php echo $a['status'];?>
-                <td><?php echo $a['id_instansi'];?>
 
 
                   <!-- <?php if($a['status'] != null){ ?>
