@@ -16,9 +16,7 @@
                 <th>No</th>
                 <th>Nomor Ticket</th>
                 <th>Judul Ticket</th>
-                
-                <th>id_user</th>
-                <th>id_instansi</th>
+                <th>Status</th>
 
                 <th>Status</th>
 
@@ -28,12 +26,14 @@
               </tr>
               </thead>
               <tbody>
+              <!-- <?php print_r($data);?> -->
               <?php $i=1;
                   foreach($data as $a){?>  
               <tr>
                 <td><?php echo $i;?></td>
                 <td><?php echo $a['no_ticket'];?></td>
                 <td><?php echo $a['judul_ticket'];?>
+                <td><?php echo $a['status'];?>
 
                 <td><?php echo $a['id_user'];?>
 

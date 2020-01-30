@@ -251,7 +251,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                    <a href="<?= base_url('loginadmin/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
+                    <a href="<?= base_url('loginadmin/login')?>" class="btn btn-default btn-flat">Sign out</a>
                   </div>
               </li>
             </ul>
@@ -333,7 +333,7 @@
             <li><a href="<?=base_url('Admin/addAdmin')?>"><i class="fa fa-circle-o"></i> Tambah Admin</a></li>
           </ul>
         </li> 
-        <li><a href="<?= base_url('logout') ?>"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+        <li><a href="<?= base_url('loginadmin/admin') ?>"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
