@@ -58,7 +58,6 @@
                   </div>
                 </div>
 
-  
                   <div class="col-md-10">
                     <div class="form-group">
                         <label>balasan</label>
@@ -66,6 +65,25 @@
                       </div>
                   </div>    
 
+                 <div class="col-md-10">
+                    <div class="form-group">
+                        <label>Indikator</label>
+                        <select class="form-control select2" name="indikator"style="width: 100%;">
+                            <option selected value="Tunggu Admin">Tunggu Admin</option>
+                            <option value="Interferensi">Interferensi</option>
+                            <option value="Adaptor Mati">Adaptor Mati</option>
+                            <option value="Radio Error">Radio Error</option>
+                            <option value="Router Error">Router Error</option>
+                            <option value="BTS Error">BTS Error</option>
+                            <option value="Kabel Error">Kabel Error</option>
+                            <option value="PC Error">PC Error</option>
+                            <option value="Overload User">Overload User</option>
+                            <option value="Behavior">Behavior</option>
+                            <option value="Gangguan Alam">Gangguan Alam</option>
+                            <option value="Listrik Padam">Listrik Padam</option>
+                      </select>
+                      </div>
+                  </div>
                   <div class="col-md-7">
                     <div class="form-group ">
                         <label for="status">Status</label>

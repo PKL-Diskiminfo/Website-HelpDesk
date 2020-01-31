@@ -42,7 +42,7 @@ class Ticket_model extends CI_Model{
       $this->update_at = date('Y-m-d H:i:s');
       $this->balasan =$post["balasan"]="Waiting for reply";
       $this->tanggal_rusak=$post["tanggal_rusak"];
-      $this->indikator=$post["indikator"]="Belum Ada";
+      $this->indikator=$post["indikator"]="Tunggu Admin";
 
       $this->db->insert($this->_table, $this);
 
@@ -60,6 +60,8 @@ class Ticket_model extends CI_Model{
       $this->status=$post["status"];  
       $this->update_at = date('Y-m-d H:i:s');
       $this->balasan =$post["balasan"];
+      $this->indikator=$post["indikator"];
+
         $this->db->update($this->_table, $this, array('id_ticket' => $post['id_ticket']));
     } 
 

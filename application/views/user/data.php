@@ -35,11 +35,17 @@
                 <td><?php echo $a['judul_ticket'];?>
                 <td><?php echo $a['status'];?>
                   <?php if($a['status'] != "Waiting"){ ?>
-                  <span class="label label-danger pull-right">new!</span></td>                  
+                  <span class="label label-danger pull-right">new!</span>
                   <?php } ?>
+                  </td>                  
+                  
                   <td><?php echo $a['indikator'];?>
+                  <?php if($a['indikator'] != "Tunggu Admin"){ ?>
+                    <?php } ?>
 
-                  <td><?php echo $a['balasan'];?>
+                  </td>
+
+                  <td><?php echo $a['balasan'];?></td>
                 <td><a href="<?php echo site_url('dashboard/view_ticket/'.$a['id_ticket']);?>">VIEW</a></td>
               </tr>
               <?php $i++;}?>
