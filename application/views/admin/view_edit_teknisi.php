@@ -17,7 +17,7 @@
         <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title"> Tambah Teknisi</h3>
-            <form action="<?php echo base_url("Admin/teknisiEdit/$teknisi->id_teknisi") ?>" method="post" enctype="multipart/form-data" >
+            <form action="<?php echo base_url("Admin/teknisiEdit/$teknisi->id_teknisi") ?>" method="post" enctype="multipart/form-data">
               <div class="box box-body">
               <input type="hidden" name="id_teknisi" value="<?php echo $teknisi->id_teknisi ?>" />
 

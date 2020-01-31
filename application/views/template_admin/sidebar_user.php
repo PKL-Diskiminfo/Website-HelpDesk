@@ -274,7 +274,7 @@
           <img src="<?=base_url("foto/admin")?>/Fadila.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><?= $this->session->userdata("username"); ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -298,7 +298,7 @@
           </a>
         </li>
         <li>
-          <a href="<?=base_url('Dashboard/ticket')?>">
+          <a href="<?=base_url('Dashboard/ticketPerson')?>">
             <i class="fa fa-ticket"></i> <span>My Ticket</span>
           </a>
         </li>

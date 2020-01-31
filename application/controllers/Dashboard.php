@@ -6,8 +6,9 @@ class Dashboard extends CI_Controller {
 	public function __construct(){
 			parent :: __construct();
 			$this->load->model(array(
-					"Ticket_model",
-				"Instansi_model" ,"User_model"));
+				"Ticket_model",
+				"Instansi_model" ,
+				"User_model"));
 		 if(empty($this->session->userdata('userid'))){
 				redirect('auth');
 			}
@@ -75,7 +76,8 @@ class Dashboard extends CI_Controller {
 	}
 
 	function addKeluhan(){
-			$data["instansi"] = $this->Instansi_model->getAll();		
+			$data["instansi"] = $this->Instansi_model->getAll();	
+
 			$tambah = $this->Ticket_model;
             $tambah->save();
 			$this->session->set_flashdata('success', 'Data Berhasil Di Tambah');

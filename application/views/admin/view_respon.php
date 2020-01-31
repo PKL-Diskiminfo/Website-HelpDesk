@@ -52,8 +52,9 @@
   
                 <div class="col-md-7">       
                   <div class="form-group">
-                      <label for="">Deskripsi</label>
-                      <textarea name="deskripsi" id="" cols="15" rows="6" class="form-control" disabled><?php echo    $ticket->deskripsi?></textarea>
+                      <label for="deskripsi">Deskripsi</label>
+                      <textarea name="deskripsi"  cols="15" rows="6" style="display:none";  class="form-control" ><?php echo$ticket->deskripsi?></textarea> 
+                      <textarea   cols="15" type="hidden"  rows="6" class="form-control" ><?php echo    $ticket->deskripsi?></textarea>
                   </div>
                 </div>
 
