@@ -54,6 +54,7 @@ Class Admin extends CI_Controller{
 
 
 //========BACK END EDIT=====================//
+    
     public function instansiEdit($id_instansi= null){
        if(!isset($id_instansi)) redirect('Admin/instansi');
        $var= $this->Instansi_model;
@@ -111,30 +112,32 @@ Class Admin extends CI_Controller{
          $this->load->view('template_admin/footer');    
      }
 
-     public function teknisiEdit($id_teknisi= null){
+     public function ticketingRespon($id_ticket= null){
+        
+        $this->Ticket_model->update();
+        $this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
+        redirect('Admin/trouble');
+
+    }
+
+
+     public function teknisiEdit($id_teknisi=null){
        
-        if(!isset($id_teknisi)) redirect('Admin/teknisi');
-        $var= $this->Teknisi_model;
-        $validation=$this->form_validation;
-        $validation->set_rules($var->rules());
+        $this->Teknisi_model->update();
+        $this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
+        redirect('Admin/teknisi');
+        
+    }
+
+     public function viewEditTeknisi(){
+        $data["keahlian"]= $this->Keahlian_model->getAll();
         $data["teknisi"]= $this->Teknisi_model->getById($id_teknisi);
-        $data["keahlian"]=$this->Keahlian_model->getAll();
-       
-        if(!$data["teknisi"]) show_404();    
+                
+ 
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
         $this->load->view('admin/view_edit_teknisi',$data);    
         $this->load->view('template_admin/footer');    
-    
-        $validation = $this->form_validation;
-        $validation->set_rules($var->rules());
-        if($validation->run())
-        {
-            $var->update();
-             $this->session->set_flashdata('success','Berhasil Disimpan');
-             redirect('Admin/teknisi');
-         }
-            
      }
 
      // ===========BACK END HAPUS=============
@@ -331,6 +334,16 @@ Class Admin extends CI_Controller{
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
         $this->load->view('admin/view_add_keahlian', $tambah);    
+        $this->load->view('template_admin/footer');
+    }
+
+    //Balasan
+    public function reply($id_ticket){
+        $data["ticket"]= $this->Ticket_model->getById($id_ticket);
+        if(!$data["ticket"]) show_404();    
+        $this->load->view('template_admin/header');
+        $this->load->view('template_admin/sidebar');
+        $this->load->view('admin/view_respon',$data);    
         $this->load->view('template_admin/footer');
     }
 }

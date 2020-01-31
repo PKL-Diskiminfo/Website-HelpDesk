@@ -4,9 +4,9 @@
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>H</b>D</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Help</b>Desk</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -31,7 +31,7 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -44,7 +44,7 @@
                   <li>
                     <a href="#">
                       <div class="pull-left">
-                        <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                        <img src="<?=base_url("foto/admin")?>/Fadila.png" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         AdminLTE Design Team
@@ -223,7 +223,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?=base_url("foto/admin")?>/Fadila.png" class="img-circle" alt="User Image">
 
                 <p>
                   Alexander Pierce - Web Developer
@@ -271,10 +271,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?=base_url("foto/admin")?>/Fadila.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><?= $this->session->userdata("username"); ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -292,69 +292,22 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        </li>
         <li>
           <a href="<?=base_url('Dashboard/index')?>">
             <i class="fa fa-plus"></i> <span>Buat Keluhan</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">new</small>
-            </span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-list"></i>
-            <span>List Data</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+        <li>
+          <a href="<?=base_url('Dashboard/ticketPerson')?>">
+            <i class="fa fa-ticket"></i> <span>My Ticket</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="<?=base_url('Admin/instansi')?>"><i class="fa fa-circle-o"></i> List Data Instansi</a></li>
-            <li><a href="<?=base_url('Admin/jabatan')?>"><i class="fa fa-circle-o"></i> List Data Jabatan</a></li>
-            <li><a href="<?=base_url('Admin/keahlian')?>"><i class="fa fa-circle-o"></i> List Data Keahlian</a></li>
-            <li><a href="<?=base_url('Admin/user')?>"><i class="fa fa-circle-o"></i> List Data User</a></li>
-            <li><a href="<?=base_url('Admin/teknisi')?>"><i class="fa fa-circle-o"></i> List Data Teknisi</a></li>
-            <li><a href="<?=base_url('Admin/admin')?>"><i class="fa fa-circle-o"></i> List Data Admin</a></li>
-          </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-plus"></i>
-            <span>Tambah Data</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+        <li>
+          <a href="<?=base_url('Dashboard/ticket')?>">
+            <i class="fa fa-list"></i> <span>List Data Keluhan</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="<?=base_url('Admin/addinstansi')?>"><i class="fa fa-circle-o"></i> Tambah Instansi</a></li>
-            <li><a href="<?=base_url('Admin/addjabatan')?>"><i class="fa fa-circle-o"></i> Tambah Jabatan</a></li>
-            <li><a href="<?=base_url('Admin/addkeahlian')?>"><i class="fa fa-circle-o"></i> Tambah Keahlian</a></li>
-            <li><a href="<?=base_url('Admin/adduser')?>"><i class="fa fa-circle-o"></i> Tambah User</a></li>
-            <li><a href="<?=base_url('Admin/addteknisi')?>"><i class="fa fa-circle-o"></i> Tambah Teknisi</a></li>
-            <li><a href="<?=base_url('Admin/addAdmin')?>"><i class="fa fa-circle-o"></i> Tambah Admin</a></li>
-          </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-          </ul>
-        </li>        
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-        <li class="header">LABELS</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+        <li><a href="<?= base_url('auth/login') ?>"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

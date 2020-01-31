@@ -10,6 +10,7 @@ Class Auth extends CI_Controller{
         parent :: __construct();
         $this->load->model(array(
             "User_model",
+            "Admin_model",
             "Instansi_model",
             "Jabatan_model" , 
             "Ticket_model"  ));
@@ -19,8 +20,6 @@ Class Auth extends CI_Controller{
           echo "tidak";
             }
     }
-
-
     public function index(){
         $this->load->view('loginandregister/login_view');
     }
@@ -45,7 +44,6 @@ Class Auth extends CI_Controller{
 				 redirect('auth');
 			}
     }
-
     
     public function register(){
         $data["instansi"] = $this->Instansi_model->getAll();

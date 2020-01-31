@@ -11,10 +11,23 @@ class Ticket_model extends CI_Model{
     public $status;
     public $balasan;
     public $update_at;
-    
+    public $tanggal_rusak;
+    public $indikator;
+
     public $id_user;
     public $id_instansi;
     
+
+    public function rules(){
+      return [
+      ['field'=>'judul_ticket',
+      'label' => 'judul_ticket',
+      'rules' => 'required'],
+      ['field'=>'balasan',
+      'label' => 'balasan',
+      'rules' => 'required']
+      ];
+    }
 
     public function save(){
       $post = $this->input->post();
@@ -27,11 +40,33 @@ class Ticket_model extends CI_Model{
       $this->id_instansi=$this->session->userdata('idinstansi');
       $this->status=$post["status"]="Waiting";  
       $this->update_at = date('Y-m-d H:i:s');
+      $this->balasan =$post["balasan"]="Waiting for reply";
+      $this->tanggal_rusak=$post["tanggal_rusak"];
+      $this->indikator=$post["indikator"]="Tunggu Admin";
+
       $this->db->insert($this->_table, $this);
-     } 
+
+    } 
+
+     public function update(){
+      $post = $this->input->post();
+      date_default_timezone_set('Asia/Jakarta');
+      $this->id_ticket=$post["id_ticket"];
+      $this->id_user=$this->session->userdata('userid');
+      $this->judul_ticket=$post["judul_ticket"];
+      $this->no_ticket=date('siHYmd');
+      $this->deskripsi=$post["deskripsi"];
+      $this->id_instansi=$this->session->userdata('idinstansi');
+      $this->status=$post["status"];  
+      $this->update_at = date('Y-m-d H:i:s');
+      $this->balasan =$post["balasan"];
+      $this->indikator=$post["indikator"];
+
+        $this->db->update($this->_table, $this, array('id_ticket' => $post['id_ticket']));
+    } 
 
     public function getAll(){ 
-      return $this->db->get($this->_table)->result_array();
+      return $this->db->get($this->_table) ->result_array();
     }
     
 
@@ -65,11 +100,11 @@ class Ticket_model extends CI_Model{
     //   return $query->result_array();
     // }
 
-    // function getticket($id)
-    // {
-    //   $this->db->where('id_ticket', $id);
-    //   $query = $this->db->get_where($this->_table);
-    //   return $query->row_array();
-    // }
+    function getViewTicket($id_ticket)
+    {
+      $this->db->where('id_ticket', $id_ticket);
+      $query = $this->db->get_where($this->_table);
+      return $query->row_array();
+    }
 
 }

@@ -28,8 +28,10 @@
                   <th>Nomer Ticket</th>
                   <th>Nama Lengkap</th>
                   <th>Instansi</th>
-                  <th>Deskripsi</th>
+                  <th>Judul Ticket</th>
                   <th>Status</th>
+                  <th>Balasan</th>
+
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -42,7 +44,8 @@
                    t.update_at,
                    u.nama_user,
                    i.nama_instansi,
-                   t.deskripsi ,
+                   t.judul_ticket ,
+                   t.balasan,
                    t.status
 
                    ');
@@ -57,10 +60,12 @@
                   <td><?= $ta->no_ticket?></td>
                   <td><?= $ta->nama_user?></td>  
                   <td><?= $ta->nama_instansi?></td>
-                  <td><?= $ta->deskripsi?></td>
-                  <td><?= $ta->status?></td>   
+                  <td><?= $ta->judul_ticket?></td>
+                  <td><?= $ta->status?></td>  
+                  <td><?= $ta->balasan?></td>  
+
                   <td>
-                 <button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span></button>
+                  <?php echo anchor('Admin/reply/' . $ta->id_ticket, '<button class="btn btn-danger margin" type="button"><span class="fa fa-pencil"></span></button>'); ?>
                  <?php echo anchor('Admin/ticketHapus/' . $ta->id_ticket, '<button class="btn btn-danger margin" type="button"><span class="fa fa-trash"></span></button>'); ?>
                   </td>
                 </tr> 

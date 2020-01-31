@@ -29,7 +29,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="../../index2.html"><b>User</b>HelpDesk</a>
   </div>
 
   <div class="register-box-body">
@@ -40,6 +40,12 @@
         <input type="text" class="form-control" placeholder="Full name" name="nama_user">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
+
+      <div class="form-group has-feedback">
+        <input type="number" class="form-control" placeholder="Number Phone" name="notelp_user">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+
       <div class="form-group has-feedback">
         <select class="form-control select2" style="width: 100%;" name="kelamin_user" >
             <option selected="selected" >Jenis Kelamin</option>
@@ -73,13 +79,7 @@
         </select>
       </div>
       <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> I agree to the <a href="#">terms</a>
-            </label>
-          </div>
-        </div>
+        
         <!-- /.col -->
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>

@@ -1,4 +1,4 @@
-<?php  defined('BASEPATH') OR exit('No direct script access allowed');
+  <?php  defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 class User_model extends CI_Model{
@@ -9,7 +9,7 @@ class User_model extends CI_Model{
     public $email_user;
     public $password_user;
     public $kelamin_user;
-
+    public $notelp_user;
     public $id_instansi;
     public $id_jabatan;
 
@@ -23,13 +23,14 @@ class User_model extends CI_Model{
     public function getAll(){
         return $this->db->get($this->_table)->result();
     }
-    public function getById($id){
+    public function getById($id_user){
         return $this->db->get_where($this->_table, ["id_user" => $id_user])->row();
     }
     public function save(){
         $post = $this->input->post();
         $this->nama_user=$post["nama_user"];
         $this->kelamin_user = $post["kelamin_user"];
+        $this->notelp_user=$post["notelp_user"];
 
         $this->email_user=$post["email_user"];
         if (empty($post["password_user"])){
@@ -47,6 +48,7 @@ class User_model extends CI_Model{
         $this->nama_user=$post["nama_user"];
         $this->email_user=$post["email_user"];
         $this->kelamin_user = $post["kelamin_user"];
+        $this->notelp_user=$post["notelp_user"];
 
         if (empty($post["password_user"])){
             $this->password=md5($post["nama_user"]);
