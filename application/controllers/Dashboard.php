@@ -71,7 +71,9 @@ class Dashboard extends CI_Controller {
 
 	function view_ticket($id_ticket)
 	{
-		$data['data'] = $this->Ticket_model->getViewTicket('id_ticket');
+		$var= $this->Ticket_model;
+		$data['data'] = $var->getById('id_ticket');
+
 		$this->load->view('user/detail', $data);
 	}
 

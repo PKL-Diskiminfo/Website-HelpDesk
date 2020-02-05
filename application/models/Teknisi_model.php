@@ -69,11 +69,6 @@ class Teknisi_model extends CI_Model{
         $this->email_teknisi=$post["email_teknisi"];
         $this->kelamin_teknisi = $post["kelamin_teknisi"];
 
-        if (empty($post["password_teknisi"])){
-            $this->password=md5($post["nama_teknisi"]);
-        } else {
-            $this->password=md5($post["password_teknisi"]) ;
-        }        
         $this->notelp_teknisi = $post["notelp_teknisi"];
 
         $this->id_keahlian=$post["id_keahlian"];

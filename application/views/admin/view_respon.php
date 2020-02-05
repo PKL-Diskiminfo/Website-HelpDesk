@@ -36,6 +36,19 @@
                   </div> 
                 </div>      
                 <div class="col-md-8">
+                  <div class="form-group">
+                      <label for="update_at">Tanggal Rusak</label>
+                      <div class="input-group date">
+                          <div class="input-group-addon">
+                              <i class="fa fa-calendar"></i>
+                          </div>
+                          <input type="text" class="form-control pull-right" id="datepicker" name="tanggal_rusak" value="<?php echo $ticket->tanggal_rusak ?>"disabled>
+                                                    <input type="hidden" class="form-control pull-right" id="datepicker" name="tanggal_rusak" value="<?php echo $ticket->tanggal_rusak ?>"disabled>
+
+                      </div>
+                  </div> 
+                </div>      
+                <div class="col-md-8">
                     <div class="form-group">
                         <label for="notelp_teknisi">Nomor Ticket</label>
                         <input class="form-control" type="text" name="notelp_teknisi" value="<?php echo $ticket->no_ticket?>" disabled>

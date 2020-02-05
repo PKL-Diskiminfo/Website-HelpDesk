@@ -18,7 +18,7 @@
                 <th>Nomor Ticket</th>
                 <th>Judul Ticket</th>
                 <th>Status</th>
-                <th>Id_USer</th>
+                <th>Indikator</th>
                 <th>status</th>
                 <th>balasan</th>
                 <th>Option</th>
@@ -36,7 +36,7 @@
                 <td><?php echo $a['no_ticket'];?></td>
                 <td><?php echo $a['judul_ticket'];?>
                 <td><?php echo $a['status'];?>
-                <td><?php echo $a['id_user'];?>
+                <td><?php echo $a['indikator'];?>
                 <td><?php echo $a['status'];?>
                   <!-- <?php if($a['status'] != null){ ?>
                   <span class="label label-danger pull-right">new!</span></td>

@@ -126,7 +126,7 @@
   <!-- Full Width Column -->
   <div class="content-wrapper">
     <div class="container">
-
+      
       <!-- Main content -->
       <section class="content">
         <div class="box box-primary">
@@ -134,7 +134,6 @@
             <h3 class="box-title">Ticket no. <?php echo $data['no_ticket'] ?></h3>
           </div>
           <!-- /.box-header -->
-          <?php var_dump($data)?>
           <div class="box-body no-padding">
             <div class="mailbox-read-info">
               <h3><?php echo $data['judul_ticket'] ?></h3>
