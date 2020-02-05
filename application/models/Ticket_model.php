@@ -84,9 +84,6 @@ class Ticket_model extends CI_Model{
 
 
 
-     public function _status(){
-
-    }
     // public function add($data)
     // {
     //   $this->db->insert($this->_table, $data);

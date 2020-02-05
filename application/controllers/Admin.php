@@ -129,7 +129,7 @@ Class Admin extends CI_Controller{
         
     }
 
-     public function viewEditTeknisi(){
+     public function viewEditTeknisi($id_teknisi){
         $data["keahlian"]= $this->Keahlian_model->getAll();
         $data["teknisi"]= $this->Teknisi_model->getById($id_teknisi);
                 
