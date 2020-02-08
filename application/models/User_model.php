@@ -11,12 +11,27 @@ class User_model extends CI_Model{
     public $kelamin_user;
     public $notelp_user;
     public $id_instansi;
-    public $id_jabatan;
 
     public function rules(){
         return[
             ['field'=>'nama_user',
             'label' => 'nama_user',
+            'rules' => 'required'],
+
+            ['field'=>'kelamin_user',
+            'label' => 'kelamin_user',
+            'rules' => 'required'],
+
+            ['field'=>'email_user',
+            'label' => 'email_user',
+            'rules' => 'required'],
+
+            ['field'=>'password_user',
+            'label' => 'password_user',
+            'rules' => 'required'],
+
+            ['field'=>'notelp_user',
+            'label' => 'notelp_user',
             'rules' => 'required']
         ];
     }
@@ -39,7 +54,6 @@ class User_model extends CI_Model{
             $this->password_user=md5($post["password_user"]) ;
         }
         $this->id_instansi=$post["id_instansi"];
-        $this->id_jabatan=$post["id_jabatan"];
         $this->db->insert($this->_table, $this);
         //var_dump($post);
     }
@@ -56,7 +70,6 @@ class User_model extends CI_Model{
             $this->password=md5($post["password_user"]) ;
         }
         $this->id_instansi=$post["id_instansi"];
-        $this->id_jabatan=$post["id_jabatan"];
 
         $this->db->update($this->_table, $this, array('id_user' => $post['id_user']));
     }

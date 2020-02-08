@@ -11,8 +11,6 @@ class Teknisi_model extends CI_Model{
     public $password_teknisi;
     public $notelp_teknisi;
 
-    public $id_keahlian;
-
     public function rules(){
         return[
             ['field'=>'nama_teknisi',
@@ -56,7 +54,6 @@ class Teknisi_model extends CI_Model{
         }        
         $this->notelp_teknisi=$post["notelp_teknisi"];
 
-        $this->id_keahlian=$post["id_keahlian"];
         $this->db->insert($this->_table, $this);
         var_dump($post);
     }
@@ -70,8 +67,6 @@ class Teknisi_model extends CI_Model{
         $this->kelamin_teknisi = $post["kelamin_teknisi"];
 
         $this->notelp_teknisi = $post["notelp_teknisi"];
-
-        $this->id_keahlian=$post["id_keahlian"];
 
         $this->db->update($this->_table, $this, array('id_teknisi' => $post['id_teknisi']));
     }

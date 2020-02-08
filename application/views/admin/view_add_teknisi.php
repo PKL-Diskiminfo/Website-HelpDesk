@@ -51,17 +51,6 @@
                       <input class="form-control" type="number" name="notelp_teknisi">
                   </div>
                 </div>   
-                <div class="col-md-7">
-                  <div class="form-group">
-                      <label for="id_keahlian">Keahlian</label>  
-                      <select class="form-control select2" name="id_keahlian"style="width: 100%;">
-                            <option value="" disable selected>Pilih Keahlian</option>
-                            <?php foreach($keahlian as $kea):?>
-                                <option value="<?= $kea->id_keahlian?>"><?= $kea->nama_keahlian?></option>
-                            <?php  endforeach;?>
-                      </select>
-                  </div>
-                </div>
                 <div class="col-md-7">  
                 <button type="submit" class="btn btn-success">Submit</button>
                 <button type="reset" class="btn btn-danger">Reset</button>

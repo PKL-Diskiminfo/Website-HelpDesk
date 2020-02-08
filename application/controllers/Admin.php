@@ -7,10 +7,8 @@ Class Admin extends CI_Controller{
         parent::__construct();
         $this->load->model(array(
             "Instansi_model",
-            "Jabatan_model",
             "User_model",
             "Ticket_model",
-            "Keahlian_model",
             "Teknisi_model",
             "Admin_model")
         );
@@ -24,13 +22,6 @@ Class Admin extends CI_Controller{
         $this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
         redirect('Admin/admin');
     }
-    
-    public function jabatanAdd(){
-        $tambah = $this->Jabatan_model;
-        $tambah->save();
-        $this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
-        redirect('Admin/jabatan');
-    }
     public function teknisiAdd(){
         $tambah = $this->Teknisi_model;
         $tambah->save();
@@ -43,13 +34,6 @@ Class Admin extends CI_Controller{
             $tambah->save();
 			$this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
         	redirect('Admin/index');
-    }
-    public function keahlianAdd()
-    {
-        	$tambah = $this->Keahlian_model;
-            $tambah->save();
-			$this->session->set_flashdata('success', 'Data Berhasil Di Tambah');
-        	redirect('Admin/keahlian');
     }
 
 
@@ -73,44 +57,6 @@ Class Admin extends CI_Controller{
         $this->load->view('admin/view_edit_instansi',$data);    
         $this->load->view('template_admin/footer');    
     }
-
-    public function jabatanEdit($id_jabatan= null){
-        if(!isset($id_jabatan)) redirect('Admin/jabatan');
-        $var= $this->Jabatan_model;
-        $validation=$this->form_validation;
-        $validation->set_rules($var->rules());
-        
-        if($validation->run()){
-            $var->update();
-             $this->session->set_flashdata('success','Berhasil Disimpan');
-             redirect('Admin/Jabatan');
-         }
-         $data["jabatan"]= $var->getById($id_jabatan);
-         if(!$data["jabatan"]) show_404();    
-         $this->load->view('template_admin/header');
-         $this->load->view('template_admin/sidebar');
-         $this->load->view('admin/view_edit_jabatan',$data);    
-         $this->load->view('template_admin/footer');    
-     }
-
-    public function keahlianEdit($id_keahlian= null){
-        if(!isset($id_keahlian)) redirect('Admin/keahlian');
-        $var= $this->Keahlian_model;
-        $validation=$this->form_validation;
-        $validation->set_rules($var->rules());
-        
-        if($validation->run()){
-            $var->update();
-             $this->session->set_flashdata('success','Berhasil Disimpan');
-             redirect('Admin/keahlian');
-         }
-         $data["keahlian"]= $var->getById($id_keahlian);
-         if(!$data["keahlian"]) show_404();    
-         $this->load->view('template_admin/header');
-         $this->load->view('template_admin/sidebar');
-         $this->load->view('admin/view_edit_keahlian',$data);    
-         $this->load->view('template_admin/footer');    
-     }
 
      public function ticketingRespon($id_ticket= null){
         
@@ -149,27 +95,11 @@ Class Admin extends CI_Controller{
 		} 
      }
 
-     public function keahlianHapus($id_keahlian = null){
-        if (!isset($id_keahlian)) show_404();
-
-		if ($this->Keahlian_model->delete($id_keahlian)) {
-			redirect('Admin/keahlian');
-		}
-     }
-
      public function instansiHapus($id_instansi = null){
         if (!isset($id_instansi)) show_404();
 
 		if ($this->Instansi_model->delete($id_instansi)) {
 			redirect('Admin/instansi');
-		}
-     }
-
-     public function jabatanHapus($id_jabatan = null){
-        if (!isset($id_jabatan)) show_404();
-
-		if ($this->Jabatan_model->delete($id_jabatan)) {
-			redirect('Admin/jabatan');
 		}
      }
 
@@ -274,28 +204,6 @@ Class Admin extends CI_Controller{
         $this->load->view('admin/view_add_user',$data,$tambah);    
         $this->load->view('template_admin/footer'); 
     }
-
-    
-
-    //==============JABATAN==============
-    public function jabatan(){
-        $data["jabatan"]= $this->Jabatan_model->getAll();
-        $this->load->view('template_admin/header');
-        $this->load->view('template_admin/sidebar');
-        $this->load->view('admin/view_jabatan',$data);    
-        $this->load->view('template_admin/footer');   
-    }
-
-    public function addjabatan(){
-        $tambah = $this->Jabatan_model;
-
-        $this->load->view('template_admin/header');
-        $this->load->view('template_admin/sidebar');
-        $this->load->view('admin/view_add_jabatan', $tambah);    
-        $this->load->view('template_admin/footer');
-
-    }
-    
     
     //Teknisi
     public function teknisi(){
@@ -316,25 +224,6 @@ Class Admin extends CI_Controller{
         $this->load->view('template_admin/sidebar');
         $this->load->view('admin/view_add_teknisi',$data,$tambah);    
         $this->load->view('template_admin/footer'); 
-    }
-
-
-    //Keahlian
-    public function keahlian(){
-        $data["keahlian"]= $this->Keahlian_model->getAll();
-        $this->load->view('template_admin/header');
-        $this->load->view('template_admin/sidebar');
-        $this->load->view('admin/view_keahlian',$data);    
-        $this->load->view('template_admin/footer');
-    }
-
-    public function addkeahlian(){
-        $tambah = $this->Keahlian_model;
-
-        $this->load->view('template_admin/header');
-        $this->load->view('template_admin/sidebar');
-        $this->load->view('admin/view_add_keahlian', $tambah);    
-        $this->load->view('template_admin/footer');
     }
 
     //Balasan
