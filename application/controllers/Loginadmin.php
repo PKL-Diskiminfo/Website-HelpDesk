@@ -14,7 +14,6 @@ class Loginadmin extends CI_Controller
             "User_model",
             "Admin_model",
             "Instansi_model",
-            "Jabatan_model",
             "Ticket_model"
         ));
           //  if($this->session->userdata('email_admin')){

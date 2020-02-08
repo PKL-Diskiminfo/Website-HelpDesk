@@ -55,17 +55,6 @@
                       </select>
                   </div>
                 </div>
-                <div class="col-md-7">
-                  <div class="form-group">
-                      <label for="id_jabatan">Jabtan</label>  
-                      <select class="form-control select2" name="id_jabatan" style="width: 100%;">
-                            <option disable selected>Pilih Jabatan</option>
-                            <?php foreach($jabatan as $jab):?>
-                                <option value="<?= $jab->id_jabatan?>"><?= $jab->nama_jabatan?></option>
-                            <?php  endforeach;?>
-                      </select>
-                  </div>
-                </div>
                 <div class="col-md-7">  
                 <button type="submit" class="btn btn-success">Submit</button>
                 <button type="reset" class="btn btn-danger">Reset</button>

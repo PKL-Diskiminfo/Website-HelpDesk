@@ -307,8 +307,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?=base_url('Admin/instansi')?>"><i class="fa fa-circle-o"></i> List Data Instansi</a></li>
-            <li><a href="<?=base_url('Admin/jabatan')?>"><i class="fa fa-circle-o"></i> List Data Jabatan</a></li>
-            <li><a href="<?=base_url('Admin/keahlian')?>"><i class="fa fa-circle-o"></i> List Data Keahlian</a></li>
             <li><a href="<?=base_url('Admin/user')?>"><i class="fa fa-circle-o"></i> List Data User</a></li>
             <li><a href="<?=base_url('Admin/teknisi')?>"><i class="fa fa-circle-o"></i> List Data Teknisi</a></li>
             <li><a href="<?=base_url('Admin/trouble')?>"><i class="fa fa-circle-o"></i> List Data Trouble</a></li>
@@ -326,8 +324,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?=base_url('Admin/addinstansi')?>"><i class="fa fa-circle-o"></i> Tambah Instansi</a></li>
-            <li><a href="<?=base_url('Admin/addjabatan')?>"><i class="fa fa-circle-o"></i> Tambah Jabatan</a></li>
-            <li><a href="<?=base_url('Admin/addkeahlian')?>"><i class="fa fa-circle-o"></i> Tambah Keahlian</a></li>
             <li><a href="<?=base_url('Admin/adduser')?>"><i class="fa fa-circle-o"></i> Tambah User</a></li>
             <li><a href="<?=base_url('Admin/addteknisi')?>"><i class="fa fa-circle-o"></i> Tambah Teknisi</a></li>
             <li><a href="<?=base_url('Admin/addAdmin')?>"><i class="fa fa-circle-o"></i> Tambah Admin</a></li>

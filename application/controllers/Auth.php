@@ -12,7 +12,6 @@ Class Auth extends CI_Controller{
             "User_model",
             "Admin_model",
             "Instansi_model",
-            "Jabatan_model" , 
             "Ticket_model"  ));
        if($this->session->userdata('email_admin')){
           echo "ada sesi";
@@ -47,7 +46,6 @@ Class Auth extends CI_Controller{
     
     public function register(){
         $data["instansi"] = $this->Instansi_model->getAll();
-        $data["jabatan"] = $this->Jabatan_model->getAll();
         $this->load->view('loginandregister/register_view',$data);
     }
 
