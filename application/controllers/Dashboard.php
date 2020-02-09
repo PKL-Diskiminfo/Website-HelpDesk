@@ -26,20 +26,20 @@ class Dashboard extends CI_Controller {
 
 	}
 
-	public function actionaddticket()
-	{
-		$data = array(
-				'judul_ticket'      		  => $this->input->post('judul_ticket'),
-				'no_ticket'       			=> date('sihYmd'),
-				'id_user'          				=> $this->session->userdata('userid'),
-				'deskripsi' 		   		  => $this->input->post('deskripsi'),
-				'status'     							=> 'Waiting',
-				'update_at'								=> date('Y-m-d h:i:s')
-		);
+	// public function actionaddticket()
+	// {
+	// 	$data = array(
+	// 			'judul_ticket'      		  => $this->input->post('judul_ticket'),
+	// 			'no_ticket'       			=> date('sihYmd'),
+	// 			'id_user'          				=> $this->session->userdata('userid'),
+	// 			'deskripsi' 		   		  => $this->input->post('deskripsi'),
+	// 			'status'     							=> 'Waiting',
+	// 			'update_at'								=> date('Y-m-d h:i:s')
+	// 	);
 
-		$this->Ticket_model->add($data);
-		redirect('user/ticket');
-	}
+	// 	$this->Ticket_model->add($data);
+	// 	redirect('user/ticket');
+	// }
 
 	
 	function ticketPerson()
@@ -71,8 +71,8 @@ class Dashboard extends CI_Controller {
 
 	function view_ticket($id_ticket)
 	{
-		$var= $this->Ticket_model;
-		$data['data'] = $var->getById('id_ticket');
+		$data['data'] = $this->Ticket_model->getViewTicket($id_ticket);
+		
 
 		$this->load->view('user/detail', $data);
 	}

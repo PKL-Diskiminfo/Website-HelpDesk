@@ -185,7 +185,6 @@ Class Admin extends CI_Controller{
     //USER
     public function user(){
         $data["instansi"]=$this->Instansi_model->getAll();
-        $data["jabatan"]=$this->Jabatan_model->getAll();
         $data["user"]=$this->User_model->getAll();
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
@@ -195,13 +194,12 @@ Class Admin extends CI_Controller{
 
 
     public function addUser(){
-        $data["instansi"] = $this->Instansi_model->getAll();
-        $data["jabatan"] = $this->Jabatan_model->getAll();
+        $data["instansi"]=$this->Instansi_model->getAll();
         $tambah = $this->User_model;
         
         $this->load->view('template_admin/header');
         $this->load->view('template_admin/sidebar');
-        $this->load->view('admin/view_add_user',$data,$tambah);    
+        $this->load->view('admin/view_add_user',$tambah);    
         $this->load->view('template_admin/footer'); 
     }
     

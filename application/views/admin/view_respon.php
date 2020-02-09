@@ -42,8 +42,8 @@
                           <div class="input-group-addon">
                               <i class="fa fa-calendar"></i>
                           </div>
-                          <input type="text" class="form-control pull-right" id="datepicker" name="tanggal_rusak" value="<?php echo $ticket->tanggal_rusak ?>"disabled>
-                                                    <input type="hidden" class="form-control pull-right" id="datepicker" name="tanggal_rusak" value="<?php echo $ticket->tanggal_rusak ?>"disabled>
+                          <input type="text" class="form-control pull-right" id="datepicker" name="tanggal_kerusakan" value="<?php echo $ticket->tanggal_kerusakan ?>"disabled>
+                                                    <input type="hidden" class="form-control pull-right" id="datepicker" name="tanggal_kerusakan" value="<?php echo $ticket->tanggal_kerusakan ?>"disabled>
 
                       </div>
                   </div> 
@@ -66,7 +66,7 @@
                 <div class="col-md-7">       
                   <div class="form-group">
                       <label for="deskripsi">Deskripsi</label>
-                      <textarea name="deskripsi"  cols="15" rows="6" style="display:none";  class="form-control" ><?php echo$ticket->deskripsi?></textarea> 
+                      <textarea name="deskripsi"  cols="15" rows="6" style="display:none";  class="form-control" ><?php echo $ticket->deskripsi?></textarea> 
                       <textarea   cols="15" type="hidden"  rows="6" class="form-control" ><?php echo    $ticket->deskripsi?></textarea>
                   </div>
                 </div>
@@ -83,17 +83,10 @@
                         <label>Indikator</label>
                         <select class="form-control select2" name="indikator"style="width: 100%;">
                             <option selected value="Tunggu Admin">Tunggu Admin</option>
-                            <option value="Interferensi">Interferensi</option>
-                            <option value="Adaptor Mati">Adaptor Mati</option>
-                            <option value="Radio Error">Radio Error</option>
-                            <option value="Router Error">Router Error</option>
-                            <option value="BTS Error">BTS Error</option>
-                            <option value="Kabel Error">Kabel Error</option>
-                            <option value="PC Error">PC Error</option>
-                            <option value="Overload User">Overload User</option>
-                            <option value="Behavior">Behavior</option>
-                            <option value="Gangguan Alam">Gangguan Alam</option>
-                            <option value="Listrik Padam">Listrik Padam</option>
+                            <option value="Hardware">Hardware</option>
+                            <option value="Software">Software</option>
+                            <option value="Human Error">Human Error</option>
+
                       </select>
                       </div>
                   </div>
@@ -118,5 +111,4 @@
         </div>
       </div>
     </section>
-    
  </div>   

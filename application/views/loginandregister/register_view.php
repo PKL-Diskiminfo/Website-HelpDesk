@@ -70,14 +70,6 @@
             
         </select>
       </div>
-      <div class="form-group has-feedback">
-        <select class="form-control select2" style="width: 100%;" name="id_jabatan">
-            <option disable selected>Jabatan Anda</option>
-            <?php foreach($jabatan as $jab):?>
-                <option value="<?= $jab->id_jabatan?>"><?= $jab->nama_jabatan?></option>
-            <?php  endforeach;?>
-        </select>
-      </div>
       <div class="row">
         
         <!-- /.col -->

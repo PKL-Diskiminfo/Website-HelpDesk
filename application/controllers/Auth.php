@@ -8,6 +8,7 @@ Class Auth extends CI_Controller{
 
     public function __construct(){
         parent :: __construct();
+        $this->load->library('session');
         $this->load->model(array(
             "User_model",
             "Admin_model",
@@ -35,6 +36,7 @@ Class Auth extends CI_Controller{
                 'useremail'   => $userlogin['email_user'],
                 'userid'      => $userlogin['id_user'],
                 'idinstansi'  => $userlogin['id_instansi']
+                
 							);
 			$this->session->set_userdata($data_session);
 			   redirect('dashboard');
@@ -61,3 +63,4 @@ Class Auth extends CI_Controller{
     }
 
 }
+ 

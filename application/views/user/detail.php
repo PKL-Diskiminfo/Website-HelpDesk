@@ -152,13 +152,7 @@
             <div class="mailbox-read-message">
               <p>Admin Answer</p>
 
-              <p>Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird
-                on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical
-                master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack
-                gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon
-                asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu
-                blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American
-                Apparel.</p>
+              <p><?php echo $data['balasan']?></p>
             </div>
           <?php }else{ ?>
             <div class="mailbox-read-message">

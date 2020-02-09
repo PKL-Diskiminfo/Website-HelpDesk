@@ -11,10 +11,10 @@ class Ticket_model extends CI_Model{
     public $status;
     public $balasan;
     public $update_at;
-    public $tanggal_rusak;
+    public $tanggal_kerusakan;
     public $indikator;
-
     public $id_user;
+    
     public $id_instansi;
     
 
@@ -33,6 +33,7 @@ class Ticket_model extends CI_Model{
       $post = $this->input->post();
 
       date_default_timezone_set('Asia/Jakarta');
+      
       $this->id_user=$this->session->userdata('userid');
       $this->judul_ticket=$post["judul_ticket"];
       $this->no_ticket=date('siHYmd');
@@ -41,9 +42,9 @@ class Ticket_model extends CI_Model{
       $this->status=$post["status"]="Waiting";  
       $this->update_at = date('Y-m-d H:i:s');
       $this->balasan =$post["balasan"]="Waiting for reply";
-      $this->tanggal_rusak=$post["tanggal_rusak"];
+      $this->tanggal_kerusakan=$post["tanggal_kerusakan"];
       $this->indikator=$post["indikator"]="Tunggu Admin";
-
+      
       $this->db->insert($this->_table, $this);
 
     } 
@@ -72,6 +73,7 @@ class Ticket_model extends CI_Model{
 
     public function getById($id_ticket){
       return $this->db->get_where($this->_table, ["id_ticket" => $id_ticket])->row();
+      
     }
     
     public function delete($id_ticket){

@@ -38,13 +38,11 @@
                   <span class="label label-danger pull-right">new!</span>
                   <?php } ?>
                   </td>                  
-                  
                   <td><?php echo $a['indikator'];?>
                   <?php if($a['indikator'] != "Tunggu Admin"){ ?>
                     <?php } ?>
 
                   </td>
-
                   <td><?php echo $a['balasan'];?></td>
                 <td><a href="<?php echo site_url('dashboard/view_ticket/'.$a['id_ticket']);?>">VIEW</a></td>
               </tr>
