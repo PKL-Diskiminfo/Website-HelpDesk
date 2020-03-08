@@ -14,6 +14,10 @@ class Instansi_model extends CI_Model{
             'label' => 'nama_instansi',
             'rules' => 'required']
         ];
+    
+    }
+    public function ambilSemua(){
+        return $this->db->get($this->_table)->result_array();
     }
     public function getAll(){
         return $this->db->get($this->_table)->result();

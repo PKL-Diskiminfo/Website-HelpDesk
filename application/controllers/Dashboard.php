@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller {
 				redirect('auth');
 			}
 			$this->load->helper('date');
-
+			
 	}
 
 	public function index()
@@ -22,6 +22,16 @@ class Dashboard extends CI_Controller {
 		$this->load->view('template_admin/sidebar_user');
 
 		$this->load->view('user/index');
+		$this->load->view('template_admin/footer');
+
+	}
+	public function test($id_ticket)
+	{
+		$data["instansi"] = $this->Instansi_model->ambilSemua();	
+		$data['data'] = $this->Ticket_model->getViewTicket($id_ticket);
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/sidebar_user');
+		$this->load->view('user/tester',$data);
 		$this->load->view('template_admin/footer');
 
 	}
@@ -71,6 +81,9 @@ class Dashboard extends CI_Controller {
 
 	function view_ticket($id_ticket)
 	{
+
+		$data["instansi"] = $this->Instansi_model->getAll();	
+
 		$data['data'] = $this->Ticket_model->getViewTicket($id_ticket);
 		
 

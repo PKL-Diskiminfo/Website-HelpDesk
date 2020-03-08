@@ -306,7 +306,7 @@
             <i class="fa fa-list"></i> <span>List Data Keluhan</span>
           </a>
         </li>
-        <li><a href="<?= base_url('auth/logout') ?>"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+        <li><a href="<?= base_url('auth/login') ?>"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

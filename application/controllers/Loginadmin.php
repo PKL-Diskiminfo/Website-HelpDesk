@@ -16,11 +16,13 @@ class Loginadmin extends CI_Controller
             "Instansi_model",
             "Ticket_model"
         ));
-          //  if($this->session->userdata('email_admin')){
-          //     echo "ada sesi";
-          //       }else{
-          //     echo "tidak";
-          //       }
+        $this->load->library('session');
+
+           if($this->session->userdata('email_admin')){
+              echo "ada sesi";
+                }else{
+              echo "tidak";
+                }
     }
 
     public function index()
@@ -42,9 +44,9 @@ class Loginadmin extends CI_Controller
                 'adminid'      => $adminlogin['id_admin']
             );
             $this->session->set_userdata($data_session);
-            redirect('Admin/');
+            redirect('Admin');
         } else {
-            $this->session->set_flashdata('message', 'Please correct your email or password.');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger">Please correct your email or password</div>');
             redirect('loginadmin');
         }
     }
