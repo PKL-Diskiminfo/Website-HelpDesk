@@ -8,6 +8,7 @@ Class Auth extends CI_Controller{
 
     public function __construct(){
         parent :: __construct();
+        $this->load->library('session');
         $this->load->model(array(
             "User_model",
             "Admin_model",
@@ -33,13 +34,14 @@ Class Auth extends CI_Controller{
 			$data_session = array(
 								'username'    => $userlogin['nama_user'],
                 'useremail'   => $userlogin['email_user'],
+                'notelpuser'   => $userlogin['notelp_user'],
                 'userid'      => $userlogin['id_user'],
-                'idinstansi'  => $userlogin['id_instansi']
+                'idinstansi'  => $userlogin['id_instansi'],
 							);
 			$this->session->set_userdata($data_session);
 			   redirect('dashboard');
 			}else{
-				 $this->session->set_flashdata('message', 'Please correct your email or password.');
+				 $this->session->set_flashdata('message', '<div class="alert alert-danger">Please correct your email or password.</div>');
 				 redirect('auth');
 			}
     }
@@ -59,5 +61,14 @@ Class Auth extends CI_Controller{
 			    $this->session->set_flashdata('success', 'Berhasil Daftar, Silahkan Login');
         	redirect('Auth/login');
     }
+    public function logout(){
+		if ($this->session->userdata('adminid')) {
+			$this->session->sess_destroy();
+			redirect(base_url("admin"));
+		}elseif($this->session->userdata('userid'))
+			$this->session->sess_destroy();
+			redirect(base_url());
+	}
 
 }
+ 

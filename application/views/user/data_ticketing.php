@@ -43,7 +43,7 @@
                   <?php } ?> -->
                   <td><?php echo $a['balasan'];?>
 
-                <td><a href="<?php echo site_url('dashboard/view_ticket/'.$a['id_ticket']);?>">VIEW</a></td>
+                <td><a href="<?php echo site_url('dashboard/test/'.$a['id_ticket']);?>">VIEW</a></td>
               </tr>
               <?php $i++;}?>
               </tbody>

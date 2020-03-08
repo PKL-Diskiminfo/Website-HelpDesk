@@ -18,6 +18,14 @@
             <div class="box-header">
               <h3 class="box-title">List Data Teknisi</h3>
             </div>
+             <!-- FLASH DATA PEMBERITAHUAN -->
+             <?php if ($this->session->flashdata('success')): ?>
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                    <?php echo $this->session->flashdata('success'); ?>
+                    </div>
+                <?php endif; ?>
             <!-- /.box-header -->
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -43,9 +51,7 @@
                    t.kelamin_teknisi,
                    t.email_teknisi,
                    t.notelp_teknisi,
-                   k.nama_keahlian
                    ');
-                 $this->db->join('keahlian as k','k.id_keahlian = t.id_keahlian', 'left');
                  $query = $this->db->get('teknisi as t')->result_object();
                 //  var_dump($query);die;
                 foreach($query as $te): ?>

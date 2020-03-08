@@ -126,7 +126,6 @@
   <!-- Full Width Column -->
   <div class="content-wrapper">
     <div class="container">
-      
       <!-- Main content -->
       <section class="content">
         <div class="box box-primary">
@@ -138,27 +137,34 @@
             <div class="mailbox-read-info">
               <h3><?php echo $data['judul_ticket'] ?></h3>
               <?php if(!empty($data['balasan'])){ ?>
-              <h5>From: Admin
               <?php } ?>
                 <span class="mailbox-read-time pull-right"><?php echo date("d M Y", strtotime($data['update_at'])); ?></span></h5>
             </div>
             <!-- /.mailbox-controls -->
             <div class="mailbox-read-info">
-              <p>Your Ask,</p>
-
+            <?php 
+                 $this->db->select(
+                  't.id_ticket,
+                   t.no_ticket,
+                   t.update_at,
+                   u.nama_user,
+                   t.judul_ticket ,
+                   t.balasan,
+                   t.status
+                   ');
+                 $this->db->join('user as u','u.id_user = t.id_user', 'left');
+                 $query = $this->db->get('ticket as t')->result_array();
+                //  var_dump($query);die;
+                 ?>
+              <p> <?php echo $data['id_user'] ?> , Ask</p>
+    
               <?php echo $data['deskripsi']; ?>
             </div>
             <?php if(!empty($data['balasan'])){ ?>
             <div class="mailbox-read-message">
               <p>Admin Answer</p>
 
-              <p>Keffiyeh blog actually fashion axe vegan, irony biodiesel. Cold-pressed hoodie chillwave put a bird
-                on it aesthetic, bitters brunch meggings vegan iPhone. Dreamcatcher vegan scenester mlkshk. Ethical
-                master cleanse Bushwick, occupy Thundercats banjo cliche ennui farm-to-table mlkshk fanny pack
-                gluten-free. Marfa butcher vegan quinoa, bicycle rights disrupt tofu scenester chillwave 3 wolf moon
-                asymmetrical taxidermy pour-over. Quinoa tote bag fashion axe, Godard disrupt migas church-key tofu
-                blog locavore. Thundercats cronut polaroid Neutra tousled, meh food truck selfies narwhal American
-                Apparel.</p>
+              <p><?php echo $data['balasan']?></p>
             </div>
           <?php }else{ ?>
             <div class="mailbox-read-message">
@@ -167,6 +173,9 @@
           <?php } ?>
             <!-- /.mailbox-read-message -->
           </div>
+          <div class="mailbox-read-message">
+              <h3><b><?php echo $data['status']?></b></h3>
+            </div>
         </div>
       </section>
       <!-- /.content -->

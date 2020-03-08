@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller {
 				redirect('auth');
 			}
 			$this->load->helper('date');
-
+			
 	}
 
 	public function index()
@@ -25,21 +25,31 @@ class Dashboard extends CI_Controller {
 		$this->load->view('template_admin/footer');
 
 	}
-
-	public function actionaddticket()
+	public function test($id_ticket)
 	{
-		$data = array(
-				'judul_ticket'      		  => $this->input->post('judul_ticket'),
-				'no_ticket'       			=> date('sihYmd'),
-				'id_user'          				=> $this->session->userdata('userid'),
-				'deskripsi' 		   		  => $this->input->post('deskripsi'),
-				'status'     							=> 'Waiting',
-				'update_at'								=> date('Y-m-d h:i:s')
-		);
+		$data["instansi"] = $this->Instansi_model->ambilSemua();	
+		$data['data'] = $this->Ticket_model->getViewTicket($id_ticket);
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/sidebar_user');
+		$this->load->view('user/tester',$data);
+		$this->load->view('template_admin/footer');
 
-		$this->Ticket_model->add($data);
-		redirect('user/ticket');
 	}
+
+	// public function actionaddticket()
+	// {
+	// 	$data = array(
+	// 			'judul_ticket'      		  => $this->input->post('judul_ticket'),
+	// 			'no_ticket'       			=> date('sihYmd'),
+	// 			'id_user'          				=> $this->session->userdata('userid'),
+	// 			'deskripsi' 		   		  => $this->input->post('deskripsi'),
+	// 			'status'     							=> 'Waiting',
+	// 			'update_at'								=> date('Y-m-d h:i:s')
+	// 	);
+
+	// 	$this->Ticket_model->add($data);
+	// 	redirect('user/ticket');
+	// }
 
 	
 	function ticketPerson()
@@ -71,8 +81,11 @@ class Dashboard extends CI_Controller {
 
 	function view_ticket($id_ticket)
 	{
-		$var= $this->Ticket_model;
-		$data['data'] = $var->getById('id_ticket');
+
+		$data["instansi"] = $this->Instansi_model->getAll();	
+
+		$data['data'] = $this->Ticket_model->getViewTicket($id_ticket);
+		
 
 		$this->load->view('user/detail', $data);
 	}
