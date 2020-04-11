@@ -80,7 +80,7 @@ Class Admin extends CI_Controller{
     }
 
      public function viewEditTeknisi($id_teknisi){
-        $data["keahlian"]= $this->Keahlian_model->getAll();
+        // $data["keahlian"]= $this->Keahlian_model->getAll();
         $data["teknisi"]= $this->Teknisi_model->getById($id_teknisi);
                 
  
@@ -123,6 +123,14 @@ Class Admin extends CI_Controller{
 			redirect('Admin/admin');
 		}
      }
+     public function userHapus($id_user = null){
+        if (!isset($id_user)) show_404();
+
+		if ($this->User_model->delete($id_user)) {
+			redirect('Admin/user');
+		}
+     }
+     
     // =================INDEX============//
     public function index(){
         $this->load->view('template_admin/header');

@@ -31,7 +31,6 @@
                   <th>Judul Ticket</th>
                   <th>Status</th>
                   <th>Balasan</th>
-
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -65,7 +64,7 @@
                   <td><?= $ta->balasan?></td>  
 
                   <td>
-                  <?php echo anchor('Admin/reply/' . $ta->id_ticket, '<button class="btn btn-danger margin" type="button"><span class="fa fa-pencil"></span></button>'); ?>
+                  <?php echo anchor('Admin/reply/' . $ta->id_ticket, '<button class="btn btn-success margin" type="button"><span class="fa fa-pencil"></span></button>'); ?>
                  <?php echo anchor('Admin/ticketHapus/' . $ta->id_ticket, '<button class="btn btn-danger margin" type="button"><span class="fa fa-trash"></span></button>'); ?>
                   </td>
                 </tr> 

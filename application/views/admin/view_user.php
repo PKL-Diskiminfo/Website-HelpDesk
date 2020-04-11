@@ -36,7 +36,7 @@
                   <th>Jenis Kelamin</th>
                   <th>Email</th>
                   <th>Instansi</th>
-
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -44,7 +44,8 @@
                 <?php $nomor=1 ?>
                 <?php 
                  $this->db->select(
-                   'u.nama_user,
+                   'u.id_user,
+                   u.nama_user,
                    u.kelamin_user,
                    u.email_user,
                    i.nama_instansi,
@@ -58,7 +59,11 @@
                   <td><?=$us->nama_user ?></td>
                   <td><?=$us->kelamin_user ?></td>  
                   <td><?=$us->email_user ?></td>  
-                  <td><?=$us->nama_instansi ?></td>        
+                  <td><?=$us->nama_instansi ?></td> 
+                  <td>
+                  <?php echo anchor('Admin/userHapus/' . $us->id_user, '<button class="btn btn-danger margin" type="button"><span class="fa fa-trash"></span> </button>'); ?>
+
+                  </td>        
                 </tr> 
                 <?php $nomor++; ?>
                 <?php endforeach; ?>
